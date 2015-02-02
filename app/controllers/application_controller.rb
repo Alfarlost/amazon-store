@@ -6,10 +6,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_order
 
   def current_order
-  	if !session[:order_id].nil?
+  	if session[:order_id].present?
   	  Order.find(session[:order_id])
   	else
-  	  Order.new
+  	  Order.create
   	end
   end
 

@@ -5,13 +5,13 @@ class Order < ActiveRecord::Base
 	belongs_to :customer
 	before_save :update_total_price
 
-	def total_price
+	def recalculate_total_price
 	  orderitems.collect { |oi| oi.valid? ? (oi.price) : 0 }.sum
 	end
 
-	private
-	  def update_total_price
-	  	self[:total_price] = total_price
-	  end
+	def update_total_price
+	  self.total_price = recalculate_total_price
+	  self.save
+	end
 
 end

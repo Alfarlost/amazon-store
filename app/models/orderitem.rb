@@ -8,16 +8,17 @@ class Orderitem < ActiveRecord::Base
   belongs_to :book
 
   before_save :finalize
+  after_save :update_order_total_price
 
   def unit_price
   	if persisted?
-  	  self[unit_price]
+  	  self.unit_price
   	else
   	  book.price
   	end
   end
 
-  def price
+  def calculate_price
   	unit_price * quantity
   end
 
@@ -35,7 +36,11 @@ private
   end
 
   def finalize
-  	self[:unit_price] = unit_price
-  	self[:price] = price
+  	self.unit_price = unit_price
+  	self.price = price
+  end
+
+  def update_order_total_price
+    self.order.update_order_total_price
   end
 end
