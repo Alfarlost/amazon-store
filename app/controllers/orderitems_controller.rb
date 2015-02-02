@@ -3,7 +3,7 @@ class OrderitemsController < ApplicationController
 
   def create
   	@orderitem = current_order.orderitems.create(orderitem_params)
-  	session[:order_id] = @order.id
+    redirect_to :back, notice: "Book was added to cart!" 
   end
 
   def update

@@ -41,6 +41,6 @@ private
   end
 
   def update_order_total_price
-    self.order.update_order_total_price
+    self.order.update_total_price
   end
 end

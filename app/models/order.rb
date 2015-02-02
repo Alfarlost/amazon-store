@@ -3,7 +3,6 @@ class Order < ActiveRecord::Base
 
 	has_many :orderitems
 	belongs_to :customer
-	before_save :update_total_price
 
 	def recalculate_total_price
 	  orderitems.collect { |oi| oi.valid? ? (oi.price) : 0 }.sum

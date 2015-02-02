@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   	  Order.find(session[:order_id])
   	else
   	  Order.create
+      session[:order_id] = order.id
   	end
   end
 
