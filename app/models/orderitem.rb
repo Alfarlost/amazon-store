@@ -10,7 +10,7 @@ class Orderitem < ActiveRecord::Base
   before_save :finalize
   after_save :update_order_total_price
 
-  def unit_price
+  def calculate_unit_price
   	if persisted?
   	  self.unit_price
   	else
@@ -19,7 +19,7 @@ class Orderitem < ActiveRecord::Base
   end
 
   def calculate_price
-  	unit_price * quantity
+  	calculate_unit_price * quantity
   end
 
 private
@@ -36,8 +36,8 @@ private
   end
 
   def finalize
-  	self.unit_price = unit_price
-  	self.price = price
+  	self.unit_price = calculate_unit_price
+  	self.price = calculate_price
   end
 
   def update_order_total_price
