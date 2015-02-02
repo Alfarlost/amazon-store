@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title AmazonStore
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .container
+      .row
+        .col-xs-6
+          %h1= link_to "Bookstore", root_path
+        .col-xs-6.text-right
+          .cart-text
+            %h1= render 'layouts/cart_text'
+    = yield

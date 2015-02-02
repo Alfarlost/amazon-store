@@ -1,0 +1,18 @@
+.well
+  .row
+    .col-xs-8
+      %h4= book.name
+    .col-xs-4
+      = form_for orderitem, remote: true do |f|
+          %h4.text-right Unit Price:
+            %span(class="color: green")= number_to_currency orderitem.unit_price
+          .row
+            .col-xs-4
+              = f.number_field :quantity, value: orderitem.quantity.to_i, class "form-control",  min:1
+              = f.hidden_field :book_id, value: book.id
+            .col-xs-8.text-right
+              .btn-group
+                = f.submit "Update Quantity", class "btn btn-primary"
+                = linl_to "Delete", orderitem, { data: {confirm: "Are you shure you wish to delete the book '#{orderitem.book.name}' from your cart?" }, method: :delete, remote: true, class: "btn btn-danger" }
+          %h4.text-right Total Price:
+            %span(class="color: green")= number_to_currency orderitem.price

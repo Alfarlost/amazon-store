@@ -1,0 +1,6 @@
+%h3.text-center 
+  Full Information
+  .row
+    .col-xs-6.col-xs-offset-3
+      - @books.each do |book|
+        = render "book_row", book: book, orderitem: @orderitem
