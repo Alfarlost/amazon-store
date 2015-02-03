@@ -2,5 +2,4 @@
   Full Information
   .row
     .col-xs-6.col-xs-offset-3
-      - @books.each do |book|
-        = render "books_row", book: book
+      = render "book_row", book: book, orderitem: @orderitem
