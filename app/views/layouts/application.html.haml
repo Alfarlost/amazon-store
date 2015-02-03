@@ -10,6 +10,7 @@
     .container
       .row
         .col-xs-6
+          = flash[:notice]
           %h1= link_to "Bookstore", root_path
         .col-xs-6.text-right
           .cart-text

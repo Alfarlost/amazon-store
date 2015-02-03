@@ -2,8 +2,12 @@ class OrderitemsController < ApplicationController
   before_filter :set_items, :except => :create
 
   def create
-  	@orderitem = current_order.orderitems.create(orderitem_params)
-    redirect_to :back, notice: "Book was added to cart!" 
+  	@orderitem = current_order.orderitems.build(orderitem_params)
+    if @orderitem.save
+      redirect_to :back, notice: "Book was added to cart!"
+    else
+      redirect_to :back, notice: @orderitem.errors.first
+    end
   end
 
   def update

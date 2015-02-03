@@ -9,5 +9,5 @@
       There are no items in your shopping cart. Please 
       = link_to "go back and choose", root_path
 - else 
-  - orderitems.each do |orderitem|
-    = render 'carts/cart_row', book: orderitem.book, orderitem: orderitem, show_total: true
+  - @orderitems.each do |orderitem|
+    = render 'cart_row', book: orderitem.book, orderitem: orderitem, show_total: true

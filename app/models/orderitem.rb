@@ -1,5 +1,5 @@
 class Orderitem < ActiveRecord::Base
-  validates :price, :quantity, presence: true
+  validates :quantity, presence: true
   validates :quantity, numericality: { only_integer: true, greater_than: 0 }
   validate :book_present
   validate :order_present

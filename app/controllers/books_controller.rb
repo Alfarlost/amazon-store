@@ -7,6 +7,6 @@ class BooksController < ApplicationController
 
 	def show
 	  @book = Book.find(params[:id])
-	  @orderitem = current_order.orderitems.new
+	  @orderitem = current_order.orderitems.build
 	end
 end
