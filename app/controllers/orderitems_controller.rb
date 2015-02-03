@@ -11,13 +11,13 @@ class OrderitemsController < ApplicationController
   end
 
   def update
-  	@orderitem.update_attributes(orderitem_params)
-  	@orderitems = current_order.orderitems
+  	@orderitem.update(orderitem_params)
+  	redirect_to :back, notice: 'Quatity was updated'
   end
 
   def destroy
   	@orderitem.destroy
-  	@orderitems = current_order.orderitems
+  	redirect_to :back, notice: "Book was removed from cart!"
   end
 
 private
