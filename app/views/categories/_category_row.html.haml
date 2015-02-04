@@ -1,0 +1,11 @@
+.well
+  .row
+    .col-xs-6
+      %h4= book.title
+    .col-xs-4
+      %h4.text-right 
+        Unit Price:
+        %span(class="color: green")
+        = number_to_currency book.price
+      .input-group-btn
+        = link_to "See Details", book_path(book.id), class: "btn btn-primary"

@@ -3,7 +3,7 @@
     .col-xs-8
       %h4= book.title
     .col-xs-4
-      = form_for @orderitem, :url => orderitems_path(orderitem.id) do |f|
+      = form_for @orderitem, :url => orderitems_path do |f|
         %h4.text-right 
           Unit Price:
           %span(class="color: green")= number_to_currency book.price

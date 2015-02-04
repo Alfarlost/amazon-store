@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  get 'categories/index'
+
+  get 'categories/show'
+
 resources :books, only: [:index, :show]
 resource :cart, only: [:show]
 resources :orderitems, only: [:create, :update, :destroy]
+resources :categories, only: [:index, :show]
 
   devise_for :admins
   devise_for :customers
