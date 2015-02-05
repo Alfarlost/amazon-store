@@ -6,10 +6,18 @@ class ApplicationController < ActionController::Base
   helper_method :current_order
 
   def current_order
-  	return Order.find(session[:order_id]) if session[:order_id].present?
-  	order = Order.create
-    session[:order_id] = order.id
-    order
+    if session[:customer_id].present?
+      return Order.find(session[:order_id]) if session[:order_id].present?
+      order = Order.create
+      session[:order_id] = order.id
+      order.set_addresses
+      order
+    else  
+  	  return Order.find(session[:order_id]) if session[:order_id].present?
+  	  order = Order.create
+      session[:order_id] = order.id
+      order
+    end
   end
 
 protected 

@@ -13,4 +13,14 @@ class Order < ActiveRecord::Base
 	  self.save
 	end
 
+	def set_addresses
+	  if self.customer.billing_address.present?
+	    self.billing_address = self.customer.billing_address
+	  elsif self.customer.shipping_address.present?
+	    self.shipping_address = self.customer.shipping_address
+	  end
+      self.save
+    end  
+
+
 end
