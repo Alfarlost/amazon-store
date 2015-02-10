@@ -13,21 +13,20 @@ class ApplicationController < ActionController::Base
       order.set_addresses
       order
     else  
-  	  return Order.find(session[:order_id]) if session[:order_id].present?
-  	  order = Order.create
+      return Order.find(session[:order_id]) if session[:order_id].present?
+      order = Order.create
       session[:order_id] = order.id
       order
     end
   end
 
 protected 
-
   def set_locale
-	  if params[:locale].blank?
-	    I18n.locale = :'ru'
-	  else
-		  I18n.locale = params[:locale]
-	  end
+    if params[:locale].blank?
+      I18n.locale = :'ru'
+    else
+      I18n.locale = params[:locale]
+    end
   end
 
   def default_url_options(options = {})

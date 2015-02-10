@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150201102620) do
+ActiveRecord::Schema.define(version: 20150210141936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +23,18 @@ ActiveRecord::Schema.define(version: 20150201102620) do
     t.string   "city"
     t.string   "phone"
     t.string   "country"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string   "type"
+    t.boolean  "same"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "customer_id"
+    t.integer  "order_id"
+    t.string   "first_name"
+    t.string   "last_name"
   end
+
+  add_index "addresses", ["customer_id"], name: "index_addresses_on_customer_id", using: :btree
+  add_index "addresses", ["order_id"], name: "index_addresses_on_order_id", using: :btree
 
   create_table "admins", force: :cascade do |t|
     t.string   "password"
@@ -93,9 +101,11 @@ ActiveRecord::Schema.define(version: 20150201102620) do
     t.integer  "customer_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "order_id"
   end
 
   add_index "credit_cards", ["customer_id"], name: "index_credit_cards_on_customer_id", using: :btree
+  add_index "credit_cards", ["order_id"], name: "index_credit_cards_on_order_id", using: :btree
 
   create_table "customers", force: :cascade do |t|
     t.string   "password"

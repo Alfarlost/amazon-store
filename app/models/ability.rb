@@ -17,7 +17,7 @@ class Ability
       can :read, Category
       can :manage, Order, customer_id: customer.id
       cannot :destroy, Order
-      can :manage, OrderItem do |order_item|
+      can :manage, OrderItem, ["order.user_id == ?", user.id] do |order_item|
         order_item.order.user_id==user.id
       end
       can :manage, CrediCard, customer_id: customer.id

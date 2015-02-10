@@ -11,6 +11,7 @@
 - else 
   - @orderitems.each do |orderitem|
     = render 'cart_row', book: orderitem.book, orderitem: orderitem, show_total: true
-%h3.text-left
-  Subtotal:
-  = number_to_currency current_order.total_price
+  %h3.text-left
+    Subtotal:
+    = number_to_currency current_order.total_price
+  = link_to "Check Out", addresses_create_billing_address_path
