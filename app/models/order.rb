@@ -2,9 +2,10 @@ class Order < ActiveRecord::Base
   validates :state, inclusion: { in:  ["in progress", "complited", "shipped"] }
 
   has_many :orderitems
+  has_many :addresses
   has_one :billing_address, class_name: 'BillingAddress'
   has_one :shipping_address, class_name: 'ShippingAddress'
-  has_one :credit_card  
+  has_one :credit_card
   belongs_to :customer
 
   def update_total_price

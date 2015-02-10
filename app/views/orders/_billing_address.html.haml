@@ -3,7 +3,7 @@
   	.col-xs-8
   		%h4
   		  Billing Address
-= form_for billing_address, :url => addresses_create_billing_address_path do |f|
+= form_for billing_address, :url => addresses_create_billing_address_path, :method => :post do |f|
   .row
   	.col-xs-4
   		= f.text_field :first_name, :placeholder => "First Name"
