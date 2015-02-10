@@ -1,12 +1,11 @@
 class AddressesController < ApplicationController
-  def create_billing_address
+  def new
   	@billing_address = current_order.addresses.build
-  	@billing_address.save
-  	redirect_to :back
+  	@shipping_address = current_order.addresses.build
   end
 
-  def create_shipping_address
-  	@shipping_address = current_order.shipping_address.build
+  def create
+  	@billing_address.save
   	@shipping_address.save
   	redirect_to :back
   end

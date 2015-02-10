@@ -14,4 +14,4 @@
   %h3.text-left
     Subtotal:
     = number_to_currency current_order.total_price
-  = link_to "Check Out", addresses_create_billing_address_path
+  = link_to "Check Out", new_address_path(@billing_address)

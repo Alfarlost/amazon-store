@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'addresses/create_billing_address'
-  post 'addresses/create_billing_address'
-
-  get 'addresses/create_shipping_address'
-  post 'addresses/create_shipping_address'
 
 resources :books, only: [:index, :show]
 resource :cart, only: [:show]
@@ -11,7 +6,7 @@ resources :orderitems, only: [:create, :update, :destroy]
 resources :categories, only: [:index, :show]
 resources :orders, only: [:index, :show]
 resources :categories, only: [:index, :show]
-resources :addresses, only: [:update]
+resources :addresses, only: [:new, :create, :update]
 resources :credit_cards, only: [:create, :update]
 
   devise_for :admins
