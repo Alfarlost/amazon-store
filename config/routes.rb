@@ -1,16 +1,4 @@
 Rails.application.routes.draw do
-  get 'shipping_adresses/create'
-
-  get 'shipping_adresses/show'
-
-  get 'shipping_adresses/update'
-
-  get 'billing_adresses/create'
-
-  get 'billing_adresses/show'
-
-  get 'billing_adresses/update'
-
   get 'addresses/create_billing_address'
   post 'addresses/create_billing_address'
 
