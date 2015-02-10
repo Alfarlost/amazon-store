@@ -1,7 +1,7 @@
 class AddressesController < ApplicationController
   def new
-  	@billing_address = current_order.addresses.build
-  	@shipping_address = current_order.addresses.build
+  	@billing_address = current_order.build_billing_address
+  	@shipping_address = current_order.build_shipping_address
   end
 
   def create
@@ -15,7 +15,7 @@ class AddressesController < ApplicationController
 
 private
   def billing_address_params
-  	params.require(:address).permit(:first_name, :last_name, :addres, :city, :country, :zipcode, :phone)
+  	params.require(:billing_address).permit(:first_name, :last_name, :addres, :city, :country, :zipcode, :phone)
   end
 
   def shipping_address_params
