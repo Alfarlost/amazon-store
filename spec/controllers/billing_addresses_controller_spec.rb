@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CreditCardsController, :type => :controller do
+RSpec.describe BillingAddressesController, :type => :controller do
 
   describe "GET new" do
     it "returns http success" do

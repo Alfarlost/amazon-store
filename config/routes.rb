@@ -6,8 +6,9 @@ resources :orderitems, only: [:create, :update, :destroy]
 resources :categories, only: [:index, :show]
 resources :orders, only: [:index, :show]
 resources :categories, only: [:index, :show]
-resources :addresses, only: [:new, :create, :update]
-resources :credit_cards, only: [:create, :update]
+resources :billing_addresses, only: [:new, :create, :update]
+resources :shipping_addresses, only: [:new, :create, :update]
+resources :credit_cards, only: [:new, :create, :update]
 
   devise_for :admins
   devise_for :customers
