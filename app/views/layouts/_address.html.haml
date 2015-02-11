@@ -2,8 +2,8 @@
   .row
     .col-xs-8
       %h4
-        Billing Address
-= form_for address do |f|
+        address.class.to_string
+= form_for address, :url => address_path do |f|
   .row
     .col-xs-4
       = f.text_field :first_name, :placeholder => "First Name"

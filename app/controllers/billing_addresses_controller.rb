@@ -4,8 +4,6 @@ class BillingAddressesController < ApplicationController
   end
 
   def create
-    @billing_address = current_order.build_billing_address
-    @billing_address.save
     if @billing_address.save
       redirect_to new_shipping_address_url
     else 
