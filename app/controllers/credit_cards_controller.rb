@@ -18,7 +18,17 @@ class CreditCardsController < ApplicationController
     end
   end
 
+  def edit
+    @credit_card = CreditCard.find(params[:id])
+  end
+
   def update
+    @credit_card = CreditCard.find(params[:id])
+    if @credit_card.update_attributes(credit_card_params)
+      redirect_to order_url(current_order.id)
+    else 
+      redirect_to :back, notice: @credit_card.errors.first
+    end
   end
 
 private

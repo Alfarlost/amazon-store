@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  validates :state, inclusion: { in:  ["in progress", "in queue" "complited", "shipped", "canceled"] }
+  validates :state, inclusion: { in:  ["in progress", "in queue", "complited", "shipped", "canceled"] }
 
   has_many :orderitems
   has_many :addresses

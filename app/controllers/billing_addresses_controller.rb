@@ -16,7 +16,17 @@ class BillingAddressesController < ApplicationController
     end
   end
 
+  def edit
+    @billing_address = BillingAddress.find(params[:id])
+  end
+
   def update
+    @billing_address = BillingAddress.find(params[:id])
+    if @billing_address.update_attributes(address_params)
+      redirect_to order_url(current_order.id)
+    else 
+      redirect_to :back, notice: @billing_address.errors.first
+    end
   end
   
 private

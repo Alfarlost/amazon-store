@@ -7,17 +7,18 @@ class ApplicationController < ActionController::Base
 
   def current_order
     if session[:customer_id].present?
-      return Order.find(session[:order_id]) if session[:order_id].present?
-      order = Order.create
-      session[:order_id] = order.id
+      set_order
       order.set_addresses
-      order
     else  
-      return Order.find(session[:order_id]) if session[:order_id].present?
-      order = Order.create
-      session[:order_id] = order.id
-      order
+      set_order
     end
+  end
+private  
+  def set_order
+    return Order.where(state: "in progress").find(session[:order_id]) if session[:order_id].present?
+    order = Order.create
+    session[:order_id] = order.id
+    order
   end
 
 protected 

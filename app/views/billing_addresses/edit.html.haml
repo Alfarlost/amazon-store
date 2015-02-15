@@ -1,0 +1,5 @@
+%h3.text-center
+  Check Out
+  .row
+    .col-xs-6.col-xs-offset-3
+      = render "layouts/address", address: @billing_address, address_path: billing_address_path(@billing_address.id)
