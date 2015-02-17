@@ -27,6 +27,7 @@ class Ability
       can :update, Rating, customer_id: customer.id
       can :read, Customer, customer.id
       can :update, Customer, customer.id
+      can :manage, Address, customer_id: customer.id
     else
       can :read, Book
       can :read, Category

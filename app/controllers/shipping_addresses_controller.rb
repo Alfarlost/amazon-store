@@ -17,7 +17,7 @@ class ShippingAddressesController < ApplicationController
   end
 
   def edit
-    @shipping_address = ShippingAddress.find(params[:id])
+    render :edit
   end
 
   def update

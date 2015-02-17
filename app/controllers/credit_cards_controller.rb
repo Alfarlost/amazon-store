@@ -19,7 +19,7 @@ class CreditCardsController < ApplicationController
   end
 
   def edit
-    @credit_card = CreditCard.find(params[:id])
+    render :edit
   end
 
   def update

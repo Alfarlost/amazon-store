@@ -17,7 +17,7 @@ class BillingAddressesController < ApplicationController
   end
 
   def edit
-    @billing_address = BillingAddress.find(params[:id])
+    render :edit
   end
 
   def update

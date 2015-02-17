@@ -1,13 +1,32 @@
 %h2
   Edit #{resource_name.to_s.humanize}
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = f.text_field(name: resource[billing_address][adress], id: customer_billing_address_adress)
-  = f.text_field(name: resource[billing_address][first_name], id: customer_billing_address_adress)
-  = f.text_field(name: resource[billing_address][last_name], id: customer_billing_address_adress)
-  = f.text_field(name: resource[billing_address][city], id: customer_billing_address_adress)
-  = f.text_field(name: resource[billing_address][country], id: customer_billing_address_adress)
-  = f.number_field(name: resource[billing_address][zipcode], id: customer_billing_address_adress)
-  = f.text_field(name: resource[billing_address][phone], id: customer_billing_address_adress)
+  .field
+    = fields_for :billing_address, resource.billing_address do |address|
+      = address.text_field :adress
+      = address.text_field :first_name
+      = address.text_field :last_name
+      = address.text_field :city
+      = address.text_field :country
+      = address.text_field :zipcode
+      = address.text_field :phone
+  .field
+    = fields_for :shipping_address, resource.shipping_address do |address|
+      = address.text_field :adress
+      = address.text_field :first_name
+      = address.text_field :last_name
+      = address.text_field :city
+      = address.text_field :country
+      = address.text_field :zipcode
+      = address.text_field :phone
+  .field
+    = fields_for :credit_card, resource.credit_card do |credit_card|
+      = credit_card.text_field :number, autofocus: true
+      Expiration date:
+      = credit_card.select(:expiration_month, options_for_select(cc_months), autofocus: true)
+      = credit_card.select(:expiration_year, options_for_select(cc_years), autofocus: true)
+      = credit_card.text_field :cvv, autofocus: true
+      = link_to "(What's this?)", root_path
   = devise_error_messages!
   .field
     = f.label :email
