@@ -1,16 +1,20 @@
-class CustomersController < ApplicationController
-  before_filter :set_data
+class CustomersController < Devise::RegistrationsController
   def edit
-  end
-
-  def update
-    
-  end
-private
-  def set_data
-    @customer =  current_customer
-    @shipping_address = @customer.shipping_address
-    @billing_address = @customer.billing_address
-    @credit_card = @customer.credit_card
+    if resource.shipping_address.present?
+      resource.shipping_address.update(params[:customer][:shipping_address])
+    else
+      resource.create_shipping_address(params[:customer][:shipping_address])
+    end
+    if resource.billing_address.present?
+      resource.billing_address.update(params[:customer][:billing_address])
+    else
+      resource.create_billing_address(params[:customer][:billing_address])
+    end
+    if resource.credit_card.present?
+      resource.credit_card.update(params[:customer][:credit_card])
+    else
+      resource.create_credit_card(params[:customer][:credit_card])
+    end
+    super
   end
 end

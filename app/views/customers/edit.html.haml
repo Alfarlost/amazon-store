@@ -1,15 +1,13 @@
 %h2
-  Edit Your Information
-= form_for @billing_address, url: edit_customer_path do |f|
-  = f.text_field :first_name, :placeholder => "First Name"
-  = f.text_field :last_name, :placeholder => "Last Name"
-  = f.text_field :adress, :placeholder => "Street Address"
-  = f.text_field :city, :placeholder => "City"
-  = f.text_field :country, :placeholder => "Country"
-  = f.number_field :zipcode, :placeholder => "Zip"
-  = f.phone_field :phone, :placeholder => "Phone"
-  = f.submit "SAVE AND CONTINUE", class: "btn btn-primary"
+  Edit #{resource_name.to_s.humanize}
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = f.text_field(name: resource[billing_address][adress], id: customer_billing_address_adress)
+  = f.text_field(name: resource[billing_address][first_name], id: customer_billing_address_adress)
+  = f.text_field(name: resource[billing_address][last_name], id: customer_billing_address_adress)
+  = f.text_field(name: resource[billing_address][city], id: customer_billing_address_adress)
+  = f.text_field(name: resource[billing_address][country], id: customer_billing_address_adress)
+  = f.number_field(name: resource[billing_address][zipcode], id: customer_billing_address_adress)
+  = f.text_field(name: resource[billing_address][phone], id: customer_billing_address_adress)
   = devise_error_messages!
   .field
     = f.label :email
