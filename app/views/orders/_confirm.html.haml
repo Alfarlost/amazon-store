@@ -23,7 +23,6 @@
             %p= "#{shipping_address.city} #{shipping_address.zipcode}"
             %p= shipping_address.country
             %p= shipping_address.phone
-            = current_order.state
           %td
             %p= "************#{credit_card.number.last(3)}"
             %p= "#{credit_card.expiration_month}/#{credit_card.expiration_year}"

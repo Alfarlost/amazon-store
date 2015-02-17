@@ -1,6 +1,6 @@
 class CreditCardsController < ApplicationController
   def new
-    if current_order.credit_card.persisted?
+    if current_order.credit_card.present?
       redirect_to order_url(current_order.id)
     else
       @credit_card = current_order.build_credit_card

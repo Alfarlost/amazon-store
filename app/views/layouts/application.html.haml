@@ -13,8 +13,14 @@
           = flash[:notice]
           %h1= link_to "Bookstore", root_path
           %h4= link_to "Categories", categories_path
-          %h4= link_to "Sign in", customer_session_path
-          %h4= link_to "Sign out", destroy_customer_session_path
+          - if customer_signed_in?
+            .div             
+              %h4
+                = link_to "Orders", orders_path
+                = link_to "Settings", edit_customer_registration_path 
+                = link_to "Sign out", destroy_customer_session_path
+          - else  
+            %h4= link_to "Sign in", customer_session_path
         .col-xs-6.text-right
           .cart-text
             %h1= render 'layouts/cart_text'

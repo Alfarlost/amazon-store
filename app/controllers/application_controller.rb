@@ -6,25 +6,32 @@ class ApplicationController < ActionController::Base
   helper_method :current_order
 
   def current_order
-    if session[:customer_id].present?
+    if customer_signed_in?
       set_order
-      order.set_addresses
+      @current_order.set_addresses
     else  
       set_order
     end
+    return @current_order
   end
 private  
   def set_order
-    return Order.where(state: "in progress").find(session[:order_id]) if session[:order_id].present?
-    order = Order.create
-    session[:order_id] = order.id
-    order
+    if session[:order_id].present?
+      @current_order = Order.find(session[:order_id])
+      if @current_order.state == "in progress"
+        @current_order = Order.find(session[:order_id])
+      else 
+        @current_order = Order.create
+      end
+    else 
+      @current_order = Order.create
+    end
+    session[:order_id] = @current_order.id
   end
-
 protected 
   def set_locale
     if params[:locale].blank?
-      I18n.locale = :'ru'
+      I18n.locale = :'en'
     else
       I18n.locale = params[:locale]
     end

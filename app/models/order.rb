@@ -6,7 +6,7 @@ class Order < ActiveRecord::Base
   has_one :billing_address, class_name: 'BillingAddress'
   has_one :shipping_address, class_name: 'ShippingAddress'
   has_one :credit_card
-  belongs_to :customer
+  has_one :customer
 
   def update_total_price
     self.total_price = recalculate_total_price
@@ -14,9 +14,9 @@ class Order < ActiveRecord::Base
   end
 
   def set_addresses
-    if self.customer.billing_address.present?
+    if self.billing_address.present?
       self.billing_address = self.customer.billing_address
-    elsif self.customer.shipping_address.present?
+    elsif self.shipping_address.present?
       self.shipping_address = self.customer.shipping_address
     end
       self.save
@@ -26,6 +26,10 @@ class Order < ActiveRecord::Base
     self.shipping_address = self.billing_address if self.billing_address.present?
   end
 
+  def in_queue
+    self.state = "in queue"
+    self.save
+  end
   
   private
   def recalculate_total_price

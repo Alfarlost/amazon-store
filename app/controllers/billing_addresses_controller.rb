@@ -1,6 +1,6 @@
 class BillingAddressesController < ApplicationController
   def new
-    if current_order.billing_address.persisted?
+    if current_order.billing_address.present?
       redirect_to new_shipping_address_url
     else
       @billing_address = current_order.build_billing_address

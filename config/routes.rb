@@ -9,9 +9,10 @@ resources :categories, only: [:index, :show]
 resources :billing_addresses, only: [:new, :create, :update, :edit]
 resources :shipping_addresses, only: [:new, :create, :update, :edit]
 resources :credit_cards, only: [:new, :create, :update, :edit]
+resources :customers, only: [:edit, :update]
 
   devise_for :admins
-  devise_for :customers
+  devise_for :customers, :controllers => { :omniauth_callbacks => "callbacks" }
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :customers
 

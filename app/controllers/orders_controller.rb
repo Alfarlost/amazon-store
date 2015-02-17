@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   def index
-    @orders = current_user.ordersg
+    @orders = current_user.orders
   end
 
   def show
@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
   end
 
   def update
-    current_order.state = "in queue"
+    current_order.in_queue
     if current_order.save
       redirect_to root_url, notice: "Your order is in queue now."
     else 
