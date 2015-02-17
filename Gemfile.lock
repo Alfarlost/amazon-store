@@ -83,6 +83,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise-i18n (0.11.3)
     diff-lcs (1.2.5)
     erb2haml (0.1.5)
       html2haml
@@ -305,6 +306,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   database_cleaner
   devise
+  devise-i18n
   erb2haml
   factory_girl_rails
   faker

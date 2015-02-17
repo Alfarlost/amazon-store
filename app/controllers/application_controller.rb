@@ -8,34 +8,33 @@ class ApplicationController < ActionController::Base
 
   def current_order
     if customer_signed_in?
-      set_customer
+      order = set_customer
+      order.set_addresses
+      return order
     else  
       set_order
     end
-    return @current_order
   end
 
 private
   def set_customer
-    set_order
-    @current_order.customer_id = session[:customer_id]
-    @current_order.save
-    return @current_order 
+    order = set_order
+    order.customer_id = session[:customer_id]
+    order.save
+    return order 
   end
 
   def set_order
     if session[:order_id].present?
-      @current_order = Order.find(session[:order_id])
-      if @current_order.state == "in progress"
-        @current_order = Order.find(session[:order_id])
-      else 
-        @current_order = Order.create
+      order = Order.find(session[:order_id])
+      unless order.state == "in progress"
+      order = Order.create
       end
-    else 
-      @current_order = Order.create
+    else
+      order = Order.create
     end
-    session[:order_id] = @current_order.id
-    return @current_order
+    session[:order_id] = order.id
+    return order
   end
 
 protected 

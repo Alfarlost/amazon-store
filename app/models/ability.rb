@@ -10,8 +10,7 @@ class Ability
       can :manage, Category
       can :read, Rating
       can :update, Rating
-      can :read, Order
-      can :update, Order
+      can :manage, Order
     elsif user.is_a?(Customer)
       can :read, Book
       can :read, Category

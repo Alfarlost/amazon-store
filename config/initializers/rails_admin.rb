@@ -55,17 +55,25 @@ RailsAdmin.config do |config|
   
     config.model 'Category' do
       list do
-        field :name
+        field :title
       end
     end
 
-      config.model 'Order' do
-          field :state, :enum do
-            enum do
-              ["in progress", "complited", "shipped"]
-            end
-          end
+    config.model 'Order' do
+      list do
+        include_all_fields
       end
+      show do
+        include_all_fields
+      end
+      edit do
+        field :state, :enum do
+          enum do
+            ["in progress", "complited", "shipped"]
+          end
+        end
+      end
+    end
 
 
 
