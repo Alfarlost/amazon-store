@@ -8,6 +8,6 @@ class Book < ActiveRecord::Base
     belongs_to :category
 
   def self.bestsellers(count)
-    joins(:orderitems).group('books.id').order("SUM(quantity) DESK").limit(count)
+    joins(:orderitems).group('books.id').order("sum(quantity) DESC").limit(count)
   end
 end
