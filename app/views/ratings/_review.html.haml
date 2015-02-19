@@ -1,0 +1,6 @@
+.well
+  .row
+    .col-xs-6
+      = form_for rating, :url => book_ratings_path do |f|
+        = f.text_area :review
+        = f.submit "SEND REVIEW", class: "btn btn-primary"

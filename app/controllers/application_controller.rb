@@ -9,7 +9,13 @@ class ApplicationController < ActionController::Base
   def current_order
     if customer_signed_in?
       order = set_customer
-      order.set_addresses
+      customer_billing_address = current_customer.billing_address
+      customer_shipping_address = current_customer.shipping_address
+      customer_credit_card = current_customer.credit_card
+      order.billing_address = customer_billing_address
+      order.shipping_address = customer_shipping_address
+      order.credit_card = customer_credit_card
+      order.save
       return order
     else  
       set_order
@@ -47,7 +53,7 @@ protected
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:email, :password, :password_confirmation, :current_password, :billing_address => {}, :shipping_address => {}, :credit_card => {}) }
+    devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:email, :password, :password_confirmation, :current_password, :billing_address => {}, :shipping_address => {}, :credit_card => {})}
   end
 
   def default_url_options(options = {})

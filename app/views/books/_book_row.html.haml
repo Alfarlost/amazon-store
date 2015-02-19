@@ -1,6 +1,7 @@
 .well
   .row
     .col-xs-8
+      = image_tag book.image_url
       %h4= book.title
     .col-xs-4
       = form_for @orderitem, :url => orderitems_path do |f|

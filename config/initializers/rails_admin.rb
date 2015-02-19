@@ -41,7 +41,7 @@ RailsAdmin.config do |config|
         field :author
         field :category
         field :price
-        field :avatar
+        field :image
       end
     end
 

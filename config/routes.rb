@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-resources :books, only: [:index, :show]
+  post '/rate' => 'rater#create', :as => 'rate'
+resources :books, only: [:index, :show] do
+resources :ratings, only: [:new, :create]
+end
 resource :cart, only: [:show]
 resources :orderitems, only: [:create, :update, :destroy]
 resources :categories, only: [:index, :show]
@@ -9,6 +12,7 @@ resources :categories, only: [:index, :show]
 resources :billing_addresses, only: [:new, :create, :update, :edit]
 resources :shipping_addresses, only: [:new, :create, :update, :edit]
 resources :credit_cards, only: [:new, :create, :update, :edit]
+resources :ratings, only: [:new, :create]
 
   devise_for :admins
   devise_for :customers, :controllers => { :omniauth_callbacks => "callbacks", :registrations => "customers" }
