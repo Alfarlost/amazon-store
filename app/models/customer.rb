@@ -4,7 +4,7 @@ class Customer < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
   ratyrate_rater
-  validates :email, :password, :firstname, :lastname, presence: true
+  validates :email, presence: true
   validates :email, uniqueness: true
 
   has_many :orders

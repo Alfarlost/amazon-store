@@ -7,40 +7,16 @@ class ApplicationController < ActionController::Base
   helper_method :current_order
 
   def current_order
-    if customer_signed_in?
-      order = set_customer
-      customer_billing_address = current_customer.billing_address
-      customer_shipping_address = current_customer.shipping_address
-      customer_credit_card = current_customer.credit_card
-      order.billing_address = customer_billing_address
-      order.shipping_address = customer_shipping_address
-      order.credit_card = customer_credit_card
-      order.save
-      return order
-    else  
-      set_order
-    end
-  end
-
-private
-  def set_customer
-    order = set_order
-    order.customer_id = session[:customer_id]
-    order.save
-    return order 
-  end
-
-  def set_order
     if session[:order_id].present?
       order = Order.find(session[:order_id])
-      unless order.state == "in progress"
-      order = Order.create
-      end
-    else
-      order = Order.create
+      if order.state == "in progress" && customer_signed_in?
+        order.set_customer(current_customer) 
+        return order
+      end 
     end
+    order = Order.build_for_customer(current_customer)
     session[:order_id] = order.id
-    return order
+    order
   end
 
 protected 

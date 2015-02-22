@@ -22,10 +22,24 @@ class Order < ActiveRecord::Base
     self.save
   end
 
-  def set_addresses
-      self.billing_address = self.customer.billing_address
-      self.shipping_address = self.customer.shipping_address
-      self.save
+  def self.build_for_customer(customer)
+    order = Order.new
+    if customer.present?
+      order.billing_address = customer.billing_address
+      order.shipping_address = customer.shipping_address
+      order.credit_card = customer.credit_card
+      order.customer = customer
+    end
+    order.save
+    order
+  end
+
+  def set_customer(customer)
+    self.billing_address = customer.billing_address
+    self.shipping_address = customer.shipping_address
+    self.credit_card = customer.credit_card
+    self.customer = customer
+    self.save
   end
   
   private
