@@ -11,10 +11,6 @@ class OrdersController < ApplicationController
 
   def update
     current_order.in_queue
-    if current_order.save
-      redirect_to root_url, notice: "Your order is in queue now."
-    else 
-      redirect_to :back, notice: "Something went wrong"
-    end
+    redirect_to root_url, notice: "Your order is in queue now."
   end
 end

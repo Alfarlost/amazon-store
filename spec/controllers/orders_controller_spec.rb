@@ -16,16 +16,7 @@ RSpec.describe OrdersController, :type => :controller do
         
     end
 
-    context "with invalid attributes" do
-      let(:current_order) { FactoryGirl.create(:order) }
-      before do
-        current_order.stub(:save).and_return false
-      end
-    it "returns falsh message" do
-      get :update
-      expect(flash[:notice]).to eq("Something went wrong")
-    end
-  end
+
   end
 
 end

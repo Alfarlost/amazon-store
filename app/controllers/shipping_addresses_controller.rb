@@ -12,7 +12,7 @@ class ShippingAddressesController < ApplicationController
     if @shipping_address.save
       redirect_to new_credit_card_url
     else 
-      redirect_to :back, notice: @shipping_address.errors.first
+      redirect_to :back, notice: @shipping_address.errors.first(8)
     end
   end
 

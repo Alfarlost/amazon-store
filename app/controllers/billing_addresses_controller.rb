@@ -12,7 +12,7 @@ class BillingAddressesController < ApplicationController
     if @billing_address.save
       redirect_to new_shipping_address_url
     else 
-      redirect_to :back, notice: @billing_address.errors.first
+      redirect_to :back, notice: @billing_address.errors.first(8)
     end
   end
 
