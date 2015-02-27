@@ -1,13 +1,19 @@
 class RatingsController < ApplicationController
-  before_filter :set_data
+  before_filter :set_data, :authenticate_customer!
+
   def new
     @rating = @book.ratings.build
   end
 
   def create
-    @rating = @book.ratings.build(rating_params)
+    @rating = @book.ratings.create(rating_params)
     @rating.customer_id = current_customer.id
-    @rating.save
+    if @rating.save
+      redirect_to book_path(@book.id), notice: "Thank you for your review!"
+    else
+      flash[:notice] = "Please try again."
+      render :new
+    end
   end
 
 private

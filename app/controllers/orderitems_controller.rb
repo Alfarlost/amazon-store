@@ -11,13 +11,19 @@ class OrderitemsController < ApplicationController
   end
 
   def update
-  	@orderitem.update(orderitem_params)
-  	redirect_to :back, notice: 'Quatity was updated'
+  	if @orderitem.update(orderitem_params)
+  	  redirect_to :back, notice: 'Quatity was updated'
+    else
+      redirect_to :back, notice: @orderitem.errors.first
+    end
   end
 
   def destroy
-  	@orderitem.destroy
-  	redirect_to :back, notice: "Book was removed from cart!"
+  	if @orderitem.destroy
+  	  redirect_to :back, notice: "Book was removed from cart!"
+    else
+      redirect_to :back, notice: @orderitem.errors.first
+    end
   end
 
 private

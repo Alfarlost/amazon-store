@@ -25,7 +25,7 @@ class BillingAddressesController < ApplicationController
     if @billing_address.update_attributes(address_params)
       redirect_to order_url(current_order.id)
     else 
-      redirect_to :back, notice: @billing_address.errors.first
+      redirect_to :back, notice: @billing_address.errors.first(8)
     end
   end
   

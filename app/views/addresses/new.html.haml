@@ -1,8 +1,0 @@
-%h3.text-center
-  Check Out
-  .row
-    .col-xs-6.col-xs-offset-3
-      - if current_order.billing_address.persisted?
-        = render "address", address: @shipping_address
-      - else
-        = render "address", address: @billing_address

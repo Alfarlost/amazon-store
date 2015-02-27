@@ -1,7 +1,10 @@
 FactoryGirl.define do
   factory :orderitem do
-    price 1
-quantity 2
+  order
+  book
+  	price nil
+  	unit_price nil
+    quantity 2
   end
 
 end
