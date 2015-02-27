@@ -8,6 +8,10 @@ Bundler.require(*Rails.groups)
 
 module AmazonStore
   class Application < Rails::Application
+    config.generators do |g|
+      g.test_framework :rspec
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -23,10 +27,4 @@ module AmazonStore
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end
- end
-
- Rails.application.configure do
-    config.generators do |g|
-    g.test_framework :rspec
-    end
  end

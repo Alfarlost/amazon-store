@@ -1,13 +1,13 @@
 require 'rails_helper'
 include Warden::Test::Helpers
+Warden.test_mode!
 
 RSpec.describe RatingsController, :type => :controller do
   let(:book) { FactoryGirl.create(:book) }
   let(:rating) { FactoryGirl.create(:rating, book_id: book.id) }
+  login_customer
 
   before do
-    customer = FactoryGirl.create(:customer)
-    login_as @customer, :scope => :customer
     Book.stub(:find).and_return book
   end
 
