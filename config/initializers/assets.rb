@@ -34,6 +34,14 @@ Rails.application.config.assets.precompile += %w( fontawesome-webfont.woff )
 Rails.application.config.assets.precompile += %w( fontawesome-webfont.ttf )
 Rails.application.config.assets.precompile += %w( fontawesome-webfont.svg )
 
+Rails.application.config.assets.precompile += %w( *.png )
+Rails.application.config.assets.precompile += %w( *.gif )
+Rails.application.config.assets.precompile += %w( *.jpg )
+Rails.application.config.assets.precompile += %w( *.eot )
+Rails.application.config.assets.precompile += %w( *.woff2 )
+Rails.application.config.assets.precompile += %w( *.woff )
+Rails.application.config.assets.precompile += %w( *.ttf )
+Rails.application.config.assets.precompile += %w( *.svg )
 
 
 # Add additional assets to the asset load path

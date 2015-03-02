@@ -2,4 +2,12 @@
   Check Out
   .row
     .col-xs-6.col-xs-offset-3
+      = render "layouts/steps", billing_address_path: nil, shipping_address_path: nil, credit_card_path: nil, order_path: order_path(current_order.id)
       = render "confirm", billing_address: @billing_address, shipping_address: @shipping_address, credit_card: @credit_card
+.row
+  .col-xs-12
+    - current_order.orderitems.each do |orderitem|
+      = render 'order_row', book: orderitem.book, orderitem: orderitem, show_total: true
+  %h3.text-right
+    Order Total:
+    = number_to_currency current_order.total_price

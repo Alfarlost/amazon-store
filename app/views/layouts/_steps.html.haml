@@ -1,7 +1,25 @@
-.div
-  = link_to "BILLING ADDRESS", billing_address_path
-  = link_to "SHIPPING ADDRESS", shipping_address_path
-  = link_to "PAYMENT", credit_card_path
-  = link_to "CONFIRM", order_path
-  COMPLETE
+%ul.breadcrumb
+  - if current_order.billing_address.present?
+    %li.active
+      BILLING ADDRESS 
+  - else
+    %li
+      = link_to "BILLING ADDRESS", billing_address_path
+  - if current_order.shipping_address.present?
+    %li.active
+      SHIPPING ADDRESS 
+  - else
+    %li
+      = link_to "SHIPPING ADDRESS", shipping_address_path
+  - if current_order.credit_card.present?
+    %li.active  
+      PAYMENT 
+  - else
+    %li.active  
+      = link_to "PAYMENT", credit_card_path
+  - if current_order.credit_card.present?
+    %li
+      = link_to "CONFIRM", order_path
+  %li
+    COMPLETE
 

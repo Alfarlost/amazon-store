@@ -1,11 +1,8 @@
-.well
-  .row
-    .col-xs-8
-      %h4
-        #{address.class}
-= form_for address, :url => address_path do |f|
-  .row
-    .col-xs-4
+.row
+  .col-xs-6{:style => "overflow: auto"}
+    %h4
+      #{address.class}
+    = form_for address, :url => address_path do |f|
       = f.text_field :first_name, :placeholder => "First Name"
       = f.text_field :last_name, :placeholder => "Last Name"
       = f.text_field :adress, :placeholder => "Street Address"
@@ -13,4 +10,8 @@
       = f.text_field :country, :placeholder => "Country"
       = f.number_field :zipcode, :placeholder => "Zip"
       = f.phone_field :phone, :placeholder => "Phone"
+      - if address.class == BillingAddress
+        %h4
+          Same shipping address:
+          = f.check_box :same, {}, "true", "false"
       = f.submit "SAVE AND CONTINUE", class: "btn btn-primary"

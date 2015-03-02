@@ -1,6 +1,6 @@
 %h3.text-center
-  = @category.title
-  .row
-    .col-xs-6.col-xs-offset-3
-      - @books.each do |book|
-        = render "books/books_row", book: book
+  ="Category: #{@category.title}"
+.row
+  .col-xs-8.col-xs-offset-2.text-center
+    - @books.each do |book|
+      = render "category_row", book: book

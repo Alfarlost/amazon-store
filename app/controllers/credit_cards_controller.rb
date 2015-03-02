@@ -19,7 +19,7 @@ class CreditCardsController < ApplicationController
   end
 
   def edit
-    render :edit
+    @credit_card = current_order.credit_card
   end
 
   def update
@@ -27,7 +27,7 @@ class CreditCardsController < ApplicationController
     if @credit_card.update_attributes(credit_card_params)
       redirect_to order_url(current_order.id)
     else 
-      redirect_to :back, notice: @credit_card.errors.first
+      redirect_to :back, notice: "Please, check your credit card information."
     end
   end
 

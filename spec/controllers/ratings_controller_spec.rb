@@ -1,6 +1,4 @@
 require 'rails_helper'
-include Warden::Test::Helpers
-Warden.test_mode!
 
 RSpec.describe RatingsController, :type => :controller do
   let(:book) { FactoryGirl.create(:book) }
@@ -14,7 +12,7 @@ RSpec.describe RatingsController, :type => :controller do
   describe "GET #new" do
     it "renders new template" do
       get :new
-      expect(response).to render_template "edit"
+      expect(response).to render_template "new"
     end 
   end
 
@@ -24,13 +22,30 @@ RSpec.describe RatingsController, :type => :controller do
     context "with passed save" do
       before do
         Rating.any_instance.stub(:save).and_return true
+        put :create, rating: rating_params
       end
 
       it "redirects to book row" do
-        put :create, rating: rating_params
-        expect(response).to redirect_to book_path(book.id)
+        expect(response).to redirect_to book_path(id: book.id, locale: 'en')
+      end
+
+      it "raises notise" do
+        expect(flash[:notice]).to eq "Thank you for your review!"
       end
     end
+    context "with passed save" do
+      before do
+        Rating.any_instance.stub(:save).and_return false
+        put :create, rating: rating_params
+      end
+      
+      it "refreshes page" do
+        expect(response).to render_template :new
+      end
 
+      it "raises notise" do
+        expect(flash[:notice]).to eq "Please try again."
+      end
+    end
   end
 end

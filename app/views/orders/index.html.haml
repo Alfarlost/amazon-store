@@ -1,2 +1,4 @@
-%h1 Order#index
-%p Find me in app/views/order/index.html.haml
+%h1 Your Orders:
+.col-xs-6.col-xs-offset-2
+  - @orders.each do |order|
+    = render "orders_row", order: order

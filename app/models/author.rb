@@ -1,5 +1,5 @@
 class Author < ActiveRecord::Base
-	validates :firstname, :lastname, presence: true
+	validates :first_name, :last_name, presence: true
 	
 	has_many :books
 end

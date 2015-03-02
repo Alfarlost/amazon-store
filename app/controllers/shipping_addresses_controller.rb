@@ -1,5 +1,6 @@
 class ShippingAddressesController < ApplicationController
   def new
+    current_order.set_shipping_address if current_order.billing_address.same == true
     if current_order.shipping_address.present?
       redirect_to new_credit_card_url
     else
@@ -17,15 +18,15 @@ class ShippingAddressesController < ApplicationController
   end
 
   def edit
-    render :edit
+    @shipping_address = current_order.shipping_address
   end
 
   def update
-    @shipping_address = ShippingAddress.find(params[:id])
-    if @billing_address.update_attributes(address_params)
+    @shipping_address = current_order.shipping_address
+    if @shipping_address.update(address_params)
       redirect_to order_url(current_order.id)
     else 
-      redirect_to :back, notice: @shipping_address.errors.first
+      redirect_to :back, notice: @shipping_address.errors.first(8)
     end
   end
 private

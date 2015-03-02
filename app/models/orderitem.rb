@@ -7,6 +7,7 @@ class Orderitem < ActiveRecord::Base
 
   before_save :finalize
   after_save :update_order_total_price
+  after_destroy :update_order_total_price
 
   def calculate_unit_price
     if persisted?

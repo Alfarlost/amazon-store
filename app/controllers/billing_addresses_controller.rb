@@ -12,12 +12,12 @@ class BillingAddressesController < ApplicationController
     if @billing_address.save
       redirect_to new_shipping_address_url
     else 
-      redirect_to :back, notice: @billing_address.errors.first(8)
+      redirect_to :back, notice: "Sorry! We got #{@billing_address.errors.count} errors here!" 
     end
   end
 
   def edit
-    render :edit
+    @billing_address = current_order.billing_address
   end
 
   def update
@@ -25,12 +25,12 @@ class BillingAddressesController < ApplicationController
     if @billing_address.update_attributes(address_params)
       redirect_to order_url(current_order.id)
     else 
-      redirect_to :back, notice: @billing_address.errors.first(8)
+      redirect_to :back, notice: "Sorry! We got #{@billing_address.errors.count} errors here!" 
     end
   end
   
 private
   def address_params 
-    params.require(:billing_address).permit(:city, :phone, :adress, :first_name, :last_name, :zipcode, :country)
+    params.require(:billing_address).permit(:city, :phone, :adress, :first_name, :last_name, :zipcode, :country, :same)
   end
 end

@@ -11,7 +11,15 @@
 - else 
   - @orderitems.each do |orderitem|
     = render 'cart_row', book: orderitem.book, orderitem: orderitem, show_total: true
-  %h3.text-left
-    Subtotal:
-    = number_to_currency current_order.total_price
-  = link_to "Check Out", new_billing_address_path
+  .div  
+    %h3.text-right
+      Subtotal:
+      = number_to_currency current_order.total_price
+    .text-center
+      = form_for current_order, :url => cart_path(current_order.id) do |f|
+        = f.text_field :coupone_code, placeholder: "Coupone Code"
+        = f.submit "UPDATE", class: "btn btn-primary"
+      .row
+        = link_to "Check Out", new_billing_address_path, class: "btn btn-primary"
+        = link_to "Back to shop", root_path, class: "btn btn-primary"
+ 

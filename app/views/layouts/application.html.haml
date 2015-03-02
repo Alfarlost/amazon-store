@@ -7,21 +7,29 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    = nav_bar static: :top, brand: "Happy Book store :)", responsive: true do
+      = menu_group do
+        = menu_item "Home", root_path
+        = menu_divider
+        = menu_item "Categories", categories_path
+      %ul.nav.navbar-nav
+        %li
+          %a.cart{:href => cart_path}
+            .i.fa.fa-shopping-cart.fa-2x
+            - if current_order.orderitems.size == 0
+              .badge empty
+            - else
+              .badge #{current_order.orderitems.size} book
+              .badge #{number_to_currency current_order.total_price}
+      = menu_group pull: :right do
+        - if current_customer
+          = menu_item "Orders", orders_path
+          = menu_item "Settings", edit_customer_registration_path
+          = menu_item "Log Out", destroy_customer_session_path
+        - else
+          = menu_item "Log In", new_customer_session_path 
     .container
       .row
-        .col-xs-6
-          = flash[:notice]
-          %h1= link_to "Bookstore", root_path
-          %h4= link_to "Categories", categories_path
-          - if customer_signed_in?
-            .div             
-              %h4
-                = link_to "Orders", orders_path
-                = link_to "Settings", edit_customer_registration_path 
-                = link_to "Sign out", destroy_customer_session_path
-          - else  
-            %h4= link_to "Sign in", customer_session_path
-        .col-xs-6.text-right
-          .cart-text
-            %h1= render 'layouts/cart_text'
-    = yield
+        = bootstrap_flash 
+        = yield
+  

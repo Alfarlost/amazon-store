@@ -1,6 +1,11 @@
-%h3.text-center
-  Categories list:
-  .row
-    .col-xs-6.col-xs-offset-3
-      - @categories.each do |category|
-        = render "categories_row", category: category
+%h3.text-left
+  Shop
+.row
+  .col-xs-8.text-center
+    - @books.each do |book|
+      = render "category_row", book: book
+  .col-xs-3.text-center
+    %h3
+      Shop by Categories:
+    - @categories.each do |category|
+      = render "categories_row", category: category

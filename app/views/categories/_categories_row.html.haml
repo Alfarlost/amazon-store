@@ -1,5 +1,2 @@
 .well
-  .row
-    .col-xs-6
-      = image_tag category.image_url
-      %h4= link_to "#{category.title}", category_path(category.id)
+  = link_to "#{category.title}", category_path(category.id)

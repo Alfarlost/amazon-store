@@ -22,7 +22,7 @@ RSpec.describe BillingAddressesController, :type => :controller do
 
       it "renders template new if billing_address apsent" do
         get :new
-        expect(response).to render_template("new")
+        expect(response).to render_template "new"
       end
     end
   end
@@ -51,12 +51,17 @@ RSpec.describe BillingAddressesController, :type => :controller do
     context "with failed save" do
       before do
         BillingAddress.any_instance.stub(:save).and_return false
+        request.env['HTTP_REFERER'] = new_billing_address_path(locale: 'en')
+        put :create, billing_address: address_params 
       end
 
-      it "redirects to back with notice" do
-        request.env['HTTP_REFERER'] = new_billing_address_path(locale: 'en', notice: "aaa")
-        put :create, billing_address: address_params 
-        expect(response).to redirect_to new_billing_address_path(locale: 'en', notice: "aaa")
+      it "redirects to back" do
+        expect(response).to redirect_to new_billing_address_path(locale: 'en')
+      end
+
+      it "raises flash notice" do
+        billing_address = FactoryGirl.build_stubbed(:billing_address)
+        expect(flash[:notice]).to eq billing_address.errors.first(8)
       end
     end
   end
@@ -99,12 +104,17 @@ RSpec.describe BillingAddressesController, :type => :controller do
     context "with failed update" do
       before do
         BillingAddress.any_instance.stub(:update_attributes).and_return false
+        request.env['HTTP_REFERER'] = edit_billing_address_path(id: billing_address.id, locale: 'en')
+        put :update, id: billing_address.id, billing_address: address_params 
       end
 
-      it "redirects to back with notice" do
-        request.env['HTTP_REFERER'] = edit_billing_address_path(id: billing_address.id, locale: 'en', notice: "aaa")
-        put :update, id: billing_address.id, billing_address: address_params 
-        expect(response).to redirect_to edit_billing_address_path(id: billing_address.id, locale: 'en', notice: "aaa")
+      it "redirects to back" do
+        expect(response).to redirect_to edit_billing_address_path(id: billing_address.id, locale: 'en')
+      end
+
+      it "raises flash notice" do
+        billing_address = FactoryGirl.build_stubbed(:billing_address)
+        expect(flash[:notice]).to eq billing_address.errors.first(8)
       end
     end
   end

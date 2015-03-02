@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 resources :books, only: [:index, :show] do
 resources :ratings, only: [:new, :create]
 end
-resource :cart, only: [:show]
+resource :cart, only: [:show, :update]
 resources :orderitems, only: [:create, :update, :destroy]
 resources :categories, only: [:index, :show]
-resources :orders, only: [:index, :show, :update]
+resources :orders
 resources :categories, only: [:index, :show]
 resources :billing_addresses, only: [:new, :create, :update, :edit]
 resources :shipping_addresses, only: [:new, :create, :update, :edit]

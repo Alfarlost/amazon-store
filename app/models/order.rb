@@ -6,15 +6,29 @@ class Order < ActiveRecord::Base
   has_one :billing_address, class_name: 'BillingAddress'
   has_one :shipping_address, class_name: 'ShippingAddress'
   has_one :credit_card
+  belongs_to :discount
   belongs_to :customer
+  before_create :set_discount
 
   def update_total_price
     self.total_price = recalculate_total_price
     self.save
   end
 
+  def set_discount
+    self.discount_id = 1
+  end
+
   def set_shipping_address
-    self.shipping_address = self.billing_address if self.billing_address.present?
+    shipping_address = self.build_shipping_address
+    shipping_address.adress = self.billing_address.adress
+    shipping_address.zipcode = self.billing_address.zipcode
+    shipping_address.city = self.billing_address.city
+    shipping_address.phone = self.billing_address.phone
+    shipping_address.country = self.billing_address.country
+    shipping_address.first_name = self.billing_address.first_name
+    shipping_address.last_name = self.billing_address.last_name
+    self.save
   end
 
   def in_queue
@@ -44,6 +58,6 @@ class Order < ActiveRecord::Base
   
   private
   def recalculate_total_price
-    orderitems.collect { |oi| oi.valid? ? (oi.price) : 0 }.sum
+    orderitems.collect { |oi| oi.price }.sum
   end  
 end

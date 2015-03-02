@@ -42,9 +42,13 @@ gem "therubyracer"
 
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 
-gem "twitter-bootstrap-rails"
+gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+
+gem 'font-awesome-less'
 
 gem "ratyrate"
+
+gem "mini_magick"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -78,6 +82,6 @@ end
 group :test do
   gem 'capybara'
   gem 'faker'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', require: false
   gem 'database_cleaner'
 end

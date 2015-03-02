@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218195242) do
+ActiveRecord::Schema.define(version: 20150302153802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,15 +75,16 @@ ActiveRecord::Schema.define(version: 20150218195242) do
   create_table "books", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.decimal  "price",       precision: 8, scale: 2
+    t.decimal  "price",             precision: 8, scale: 2
     t.integer  "bookinstock"
     t.integer  "author_id"
     t.integer  "category_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "state"
     t.string   "avatar"
     t.string   "image"
+    t.text     "small_description"
   end
 
   add_index "books", ["author_id"], name: "index_books_on_author_id", using: :btree
@@ -141,6 +142,14 @@ ActiveRecord::Schema.define(version: 20150218195242) do
   add_index "customers", ["email"], name: "index_customers_on_email", unique: true, using: :btree
   add_index "customers", ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true, using: :btree
 
+  create_table "discounts", force: :cascade do |t|
+    t.string   "coupone_code"
+    t.float    "discount"
+    t.integer  "order_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "orderitems", force: :cascade do |t|
     t.decimal  "price",      precision: 8, scale: 2
     t.integer  "quantity"
@@ -162,6 +171,8 @@ ActiveRecord::Schema.define(version: 20150218195242) do
     t.integer  "credit_card_id"
     t.datetime "created_at",                                                     null: false
     t.datetime "updated_at",                                                     null: false
+    t.string   "coupone_code"
+    t.integer  "discount_id"
   end
 
   add_index "orders", ["credit_card_id"], name: "index_orders_on_credit_card_id", using: :btree
