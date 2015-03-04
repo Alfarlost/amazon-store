@@ -4,11 +4,9 @@ class CartsController < ApplicationController
   end
   
   def update
-    @order = current_order
     if current_order.update(coupone_params)
       if current_order.coupone_code == current_order.discount.coupone_code
-        current_order.total_price -= current_order.total_price*current_order.discount.discount.to_i
-        current_order.save
+        current_order.calculate_discount
         redirect_to :back, notice: "You got 5% discount"
       else
         redirect_to :back, notice: "Wrong Code."

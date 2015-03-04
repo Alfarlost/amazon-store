@@ -19,7 +19,8 @@ class CustomersController < Devise::RegistrationsController
       resource.credit_card.update(credit_card_params)
     else
       resource.create_credit_card(credit_card_params)
-    end   
+    end
+      current_order.set_customer(resource) if resource.save  
   end
 private
   def billing_address_params 

@@ -1,0 +1,30 @@
+.well
+  .row
+    .table{:style => "word-wrap: break-word"}
+      %tr
+        .col-xs-2
+          %td
+            = image_tag book.image_url
+        .col-xs-7
+          %td
+            .text-center
+              BOOK
+            %h4= book.title
+            #{book.description}
+        .col-xs-1
+          %td
+            .text-right
+              PRICE
+            %h4.text-right 
+              = number_to_currency orderitem.unit_price
+        .col-xs-1 
+          %td
+            .text-center
+              QTY
+              %h4= orderitem.quantity.to_i
+        .col-xs-1
+          %td
+            TOTAL
+            %h4
+              = number_to_currency orderitem.price       
+        

@@ -20,7 +20,6 @@ class Ability
         order_item.order.user_id==user.id
       end
       can :manage, CrediCard, customer_id: customer.id
-      cannot :destroy, CrediCard
       can :new, Rating
       can :read, Rating
       can :update, Rating, customer_id: customer.id
@@ -28,6 +27,7 @@ class Ability
       can :update, Customer, customer.id
       can :manage, Address, customer_id: customer.id
     else
+      can :manage, CrediCard
       can :read, Book
       can :read, Category
       can :read, Rating

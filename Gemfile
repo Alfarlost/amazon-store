@@ -50,6 +50,8 @@ gem "ratyrate"
 
 gem "mini_magick"
 
+gem "virtus"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

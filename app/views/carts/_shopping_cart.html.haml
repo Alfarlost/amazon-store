@@ -19,7 +19,6 @@
       = form_for current_order, :url => cart_path(current_order.id) do |f|
         = f.text_field :coupone_code, placeholder: "Coupone Code"
         = f.submit "UPDATE", class: "btn btn-primary"
-      .row
-        = link_to "Check Out", new_billing_address_path, class: "btn btn-primary"
-        = link_to "Back to shop", root_path, class: "btn btn-primary"
+      = link_to "Check Out", new_checkout_path, class: "btn btn-primary"
+      = link_to "Back to shop", root_path, class: "btn btn-primary"
  

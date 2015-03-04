@@ -1,0 +1,10 @@
+- @orderitems.each do |orderitem|
+  = render 'carts/cart_row', book: orderitem.book, orderitem: orderitem, show_total: true
+  .div  
+    %h3.text-right
+      Total:
+      = number_to_currency current_order.total_price
+  - if @order.state == "in queue"
+    .text-center
+      = link_to "Cancel Order", order_path(@order.id), :method => :delete, class: "btn btn-primary"
+      = link_to "Back to shop", root_path, class: "btn btn-primary"

@@ -2,10 +2,9 @@ class Order < ActiveRecord::Base
   validates :state, inclusion: { in:  ["in progress", "in queue", "complited", "shipped", "canceled"] }
 
   has_many :orderitems
-  has_many :addresses
-  has_one :billing_address, class_name: 'BillingAddress'
-  has_one :shipping_address, class_name: 'ShippingAddress'
-  has_one :credit_card
+  has_one :billing_address, class_name: 'BillingAddress', dependent: :destroy
+  has_one :shipping_address, class_name: 'ShippingAddress', dependent: :destroy
+  has_one :credit_card, dependent: :destroy
   belongs_to :discount
   belongs_to :customer
   before_create :set_discount
@@ -19,15 +18,8 @@ class Order < ActiveRecord::Base
     self.discount_id = 1
   end
 
-  def set_shipping_address
-    shipping_address = self.build_shipping_address
-    shipping_address.adress = self.billing_address.adress
-    shipping_address.zipcode = self.billing_address.zipcode
-    shipping_address.city = self.billing_address.city
-    shipping_address.phone = self.billing_address.phone
-    shipping_address.country = self.billing_address.country
-    shipping_address.first_name = self.billing_address.first_name
-    shipping_address.last_name = self.billing_address.last_name
+  def calculate_discount
+    self.total_price -= self.total_price*self.discount.discount
     self.save
   end
 
@@ -39,19 +31,16 @@ class Order < ActiveRecord::Base
   def self.build_for_customer(customer)
     order = Order.new
     if customer.present?
-      order.billing_address = customer.billing_address
-      order.shipping_address = customer.shipping_address
-      order.credit_card = customer.credit_card
-      order.customer = customer
+      order.set_customer(customer)
     end
     order.save
     order
   end
 
   def set_customer(customer)
-    self.billing_address = customer.billing_address
-    self.shipping_address = customer.shipping_address
-    self.credit_card = customer.credit_card
+    self.billing_address = customer.billing_address.dup
+    self.shipping_address = customer.shipping_address.dup
+    self.credit_card = customer.credit_card.dup
     self.customer = customer
     self.save
   end

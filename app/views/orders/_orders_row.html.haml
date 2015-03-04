@@ -1,0 +1,21 @@
+- if order.state != "in progress" || order.total_price != nil
+  .well
+    .row
+      .table{:style => "word-wrap: break-word"}
+        %tr
+          .col-xs-2
+            %td
+              Order ID
+              %h4= order.id
+          .col-xs-4
+            %td
+              .text-center
+                Order State
+                %h4= order.state
+          .col-xs-3
+            %td
+              Total Price
+              %h4
+                = number_to_currency order.total_price
+          .col-xs-1.text-center
+            = link_to "Details", edit_order_path(order.id), class: "btn btn-primary" 
