@@ -2,9 +2,6 @@ class Checkout
   include Virtus.model
 
   include ActiveModel::Model
-  extend ActiveModel::Naming
-  include ActiveModel::Conversion
-  include ActiveModel::Validations
 
   def persisted?
     false
@@ -107,7 +104,7 @@ class Checkout
     if checkbox == "true"
       shipping_address.attributes = { :adress => params[:b_adress], :city => params[:b_city], :phone => params[:b_phone], :country => params[:b_country], :zipcode => params[:b_zipcode], :first_name => params[:b_first_name], :last_name => params[:b_last_name] }
     else
-      shipping_address.attributes ={ :adress => params[:s_adress], :city => params[:s_city], :phone => params[:s_phone], :country => params[:s_country], :zipcode => params[:s_zipcode], :first_name => params[:s_first_name], :last_name => params[:s_last_name] }   
+      shipping_address.attributes = { :adress => params[:s_adress], :city => params[:s_city], :phone => params[:s_phone], :country => params[:s_country], :zipcode => params[:s_zipcode], :first_name => params[:s_first_name], :last_name => params[:s_last_name] }   
     end
   end
 

@@ -41,7 +41,7 @@ class Order < ActiveRecord::Base
     self.billing_address = customer.billing_address.dup
     self.shipping_address = customer.shipping_address.dup
     self.credit_card = customer.credit_card.dup
-    self.customer_id = customer.id
+    self.customer = customer
     self.save
   end
   

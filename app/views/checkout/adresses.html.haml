@@ -1,0 +1,8 @@
+%h3.text-center
+  Check Out
+  .row
+    .col-xs-12
+      = render "layouts/steps"
+      = render "layouts/address", address: @checkout, address_path: wizard_path
+
+      

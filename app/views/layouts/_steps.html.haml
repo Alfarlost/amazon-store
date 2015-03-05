@@ -1,14 +1,14 @@
 %ul.breadcrumb
   %li
-    = link_to "ADDRESSES", wizard_path(:addresses)
+    = link_to "ADDRESSES", checkout_path(:addresses)
   - if current_order.credit_card.present?
     %li.active
-      = link_to "PAYMENT", wizard_path(:payment)  
+      = link_to "PAYMENT", checkout_path(:payment)  
   - else
     %li.active  
       PAYMENT 
-    %li
-      = link_to "CONFIRM", wizard_path(:confirm)
+  %li
+    = link_to "CONFIRM", checkout_path(:confirm)
   %li
     COMPLETE
 

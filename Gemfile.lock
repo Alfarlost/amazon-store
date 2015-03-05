@@ -79,6 +79,7 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (4.1.0)
@@ -165,6 +166,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    method_source (0.8.2)
     mime-types (2.4.3)
     mini_magick (4.1.0)
     mini_portile (0.6.2)
@@ -193,6 +195,13 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.18.1)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-byebug (3.0.1)
+      byebug (~> 3.4)
+      pry (~> 0.10)
     rack (1.6.0)
     rack-pjax (0.8.0)
       nokogiri (~> 1.5)
@@ -346,6 +355,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   pg
+  pry-byebug
   rails (= 4.2.0)
   rails_admin (~> 0.6.3)
   ratyrate

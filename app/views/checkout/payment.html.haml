@@ -1,0 +1,6 @@
+%h3.text-center
+  Check Out
+  .row
+    .col-xs-8.col-xs-offset-2
+      = render "layouts/steps"
+      = render "credit_card", credit_card: @checkout, credit_card_path: wizard_path

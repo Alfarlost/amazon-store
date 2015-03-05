@@ -1,0 +1,15 @@
+.well
+  .row
+    .col-xs-8
+      %h4
+        CREDIT CARD
+= form_for credit_card, method: :put, :url => credit_card_path do |f|
+  .row
+    .col-xs-4
+      = f.text_field :number, :placeholder => "Card Number"
+      Expiration date:
+      = f.select(:expiration_month, options_for_select(cc_months), :placeholder => "Month")
+      = f.select(:expiration_year, options_for_select(cc_years), :placeholder => "Year")
+      = f.text_field :cvv, :placeholder => "Card Code"
+      = link_to "(What's this?)", root_path
+      = f.submit "SAVE AND CONTINUE", class: "btn btn-primary"
