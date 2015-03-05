@@ -1,11 +1,11 @@
-class Customers::SessionsController < Devise::SessionsController
+class SessionsController < Devise::SessionsController
 # before_filter :configure_sign_in_params, only: [:create]
   after_filter :set_settings, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    super
+  end
 
   # POST /resource/sign_in
   def create
@@ -13,9 +13,9 @@ class Customers::SessionsController < Devise::SessionsController
   end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+  end
 
   protected
   def set_settings

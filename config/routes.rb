@@ -13,10 +13,10 @@ resources :billing_addresses, only: [:new, :create, :update, :edit]
 resources :shipping_addresses, only: [:new, :create, :update, :edit]
 resources :credit_cards, only: [:new, :create, :update, :edit]
 resources :ratings, only: [:new, :create]
-resources :checkouts, only: [:new, :create]
+resources :checkout, only: [:show, :update]
 
   devise_for :admins
-  devise_for :customers, :controllers => { :omniauth_callbacks => "callbacks", :registrations => "customers" }
+  devise_for :customers, :controllers => { :omniauth_callbacks => "callbacks", :registrations => "customers", :sessions => "sessions" }
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :customers
 

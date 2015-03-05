@@ -1,7 +1,0 @@
-%h3.text-center
-  Check Out
-  .row
-    .col-xs-8.col-xs-offset-2
-      = render "layouts/steps", billing_address_path: new_billing_address_path, shipping_address_path: nil, credit_card_path: nil, order_path: nil
-      = render "layouts/address", address: @billing_address, address_path: billing_addresses_path
-      
