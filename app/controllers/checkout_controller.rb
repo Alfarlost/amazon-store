@@ -1,6 +1,6 @@
 class CheckoutController < ApplicationController
   include Wicked::Wizard
-  steps :adresses, :payment, :confirm
+  steps *Checkout.form_steps
 
   def show
     @checkout = Checkout.new(current_order)
@@ -9,17 +9,21 @@ class CheckoutController < ApplicationController
 
   def update
     @checkout = Checkout.new(current_order)
-    @checkout.submit(checkout_params)
-    render_wizard(@checkout)
+    if @checkout.update(checkout_params(step))
+      render_wizard(@checkout)
+    else
+      flash[:error] = "Something went wrong!"
+      render_wizard
+    end
   end
 
 private
-  def checkout_params
+  def checkout_params(step)
     permitted_attributes = case step
-      when :adresses
+      when "adresses"
         [:b_adress, :b_country, :b_city, :b_phone, :b_zipcode, :b_first_name, :b_last_name,
          :s_adress, :s_country, :s_city, :s_phone, :s_zipcode, :s_first_name, :s_last_name, :same_shipping_address]
-      when :payment
+      when "payment"
         [:number, :cvv, :expiration_month, :expiration_year]
       end
 

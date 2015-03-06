@@ -8,10 +8,11 @@ class Checkout
   end
 
   cattr_accessor :form_steps do
-    %w(addresses payment confirm)
+    %w(adresses payment confirm)
   end
 
   attr_accessor :form_step
+  attr_accessor :same_shipping_address
 
   attr_reader :billing_address
   attr_reader :shipping_address
@@ -33,11 +34,11 @@ class Checkout
   attribute :s_zipcode, Integer
   attribute :s_first_name, String
   attribute :s_last_name, String
-
-  validates_presence_of :b_adress, :b_city, :b_phone, :b_country, :b_zipcode, :b_first_name, :b_last_name, if: -> { required_for_step?(:addresses) }
-  validates_presence_of :s_adress, :s_city, :s_phone, :s_country, :s_zipcode, :s_first_name, :s_last_name, if: -> { required_for_step?(:addresses) }
-  validates_presence_of :number, :cvv, :expiration_month, :expiration_year, if: -> { required_for_step?(:payment) }
-
+ 
+  validates :b_adress, :b_city, :b_phone, :b_country, :b_zipcode, :b_first_name, :b_last_name, :presence => true, :on => :update, if: -> { required_for_step?(:adresses) }
+  validates :s_adress, :s_city, :s_phone, :s_country, :s_zipcode, :s_first_name, :s_last_name, :presence => true, :on => :update, if: -> { required_for_step?(:adresses) }
+  validates :number, :cvv, :expiration_month, :expiration_year, :on => :update, :presence => true, if: -> { required_for_step?(:payment) }
+  
   delegate :number, :cvv, :expiration_month, :expiration_year, to: :credit_card
 
   def initialize(order)
@@ -75,20 +76,29 @@ class Checkout
     @credit_card
   end
 
-  def submit(params)
-    credit_card.attributes = params.slice(:number, :cvv, :expiration_month, :expiration_year )
-    billing_address.attributes = { :adress => params[:b_adress], :city => params[:b_city], :phone => params[:b_phone], :country => params[:b_country], :zipcode => params[:b_zipcode], :first_name => params[:b_first_name], :last_name => params[:b_last_name] }
-    self.same_shipping_address
-    credit_card.firstname = params[:b_first_name]
-    credit_card.lastname = params[:b_last_name]
+  def update(params)
+    self.attributes = params
+    if valid?
+      if required_for_step?(:adresses)
+        billing_address.attributes = { :adress => self.b_adress, :city => self.b_city, :phone => self.b_phone, :country => self.b_country, :zipcode => self.b_zipcode, :first_name => self.b_first_name, :last_name => self.b_last_name, :order_id => @order.id, :type => "BillingAddress" }
+        shipping_address.attributes = { :adress => self.s_adress, :city => self.s_city, :phone => self.s_phone, :country => self.s_country, :zipcode => self.s_zipcode, :first_name => self.s_first_name, :last_name => self.s_last_name, :order_id => @order.id, :type => "ShippingAddress" }
+        shipping_address.save!
+        billing_address.save!
+      elsif required_for_step?(:payment)
+        credit_card.attributes = params.slice(:number, :cvv, :expiration_month, :expiration_year)
+        credit_card.firstname = billing_address.first_name
+        credit_card.lastname = billing_address.last_name
+        credit_card.save!
+      end
+      true
+    else
+      false
+    end   
   end
   
   def save
     if valid?
       @order.save!
-      billing_address.save! if billing_address.valid?
-      shipping_address.save! if shipping_address.valid?
-      credit_card.save! if credit_card.valid?
       true
     else
       false
@@ -100,20 +110,13 @@ class Checkout
     shipping_address.attributes
   end
 
-  def same_shipping_address=(checkbox)
-    if checkbox == "true"
-      shipping_address.attributes = { :adress => params[:b_adress], :city => params[:b_city], :phone => params[:b_phone], :country => params[:b_country], :zipcode => params[:b_zipcode], :first_name => params[:b_first_name], :last_name => params[:b_last_name] }
-    else
-      shipping_address.attributes = { :adress => params[:s_adress], :city => params[:s_city], :phone => params[:s_phone], :country => params[:s_country], :zipcode => params[:s_zipcode], :first_name => params[:s_first_name], :last_name => params[:s_last_name] }   
-    end
-  end
 
   def required_for_step?(step)
-  # All fields are required if no form step is present
-  return true if form_step.nil?
+    # All fields are required if no form step is present
+    return true if form_step.nil?
 
-  # All fields from previous steps are required if the
-  # step parameter appears before or we are on the current step
-  return true if self.form_steps.index(step.to_s) <= self.form_steps.index(form_step)
-end
+    # All fields from previous steps are required if the
+    # step parameter appears before or we are on the current step
+    return true if self.form_steps.index(step.to_s) == self.form_steps.index(form_step)
+  end
 end
