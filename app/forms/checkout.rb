@@ -63,15 +63,15 @@ class Checkout
   end
 
   def billing_address
-    @billing_address = @order.billing_address     
+    @order.billing_address     
   end
 
   def shipping_address
-    @shipping_address = @order.shipping_address
+    @order.shipping_address
   end
 
   def credit_card
-    @credit_card = @order.credit_card
+    @order.credit_card
   end
 
   def update(params)
