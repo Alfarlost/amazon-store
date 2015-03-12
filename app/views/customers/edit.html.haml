@@ -10,6 +10,7 @@
       = address.text_field :country
       = address.text_field :zipcode
       = address.text_field :phone
+      = address.submit "Update"
   .field
     = fields_for :shipping_address, resource.shipping_address do |address|
       = address.text_field :adress
@@ -19,14 +20,7 @@
       = address.text_field :country
       = address.text_field :zipcode
       = address.text_field :phone
-  .field
-    = fields_for :credit_card, resource.credit_card do |credit_card|
-      = credit_card.text_field :number, autofocus: true
-      Expiration date:
-      = credit_card.select(:expiration_month, options_for_select(cc_months), autofocus: true)
-      = credit_card.select(:expiration_year, options_for_select(cc_years), autofocus: true)
-      = credit_card.text_field :cvv, autofocus: true
-      = link_to "(What's this?)", root_path
+      = address.submit "Update"
   = devise_error_messages!
   .field
     = f.label :email
@@ -40,10 +34,6 @@
     %i (leave blank if you don't want to change it)
     %br/
     = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
   .field
     = f.label :current_password
     %i (we need your current password to confirm your changes)

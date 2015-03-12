@@ -1,0 +1,19 @@
+.well
+  .row
+    .col-xs-8
+      %h4
+        DELIVERY
+= form_for @checkout, method: :put, url: wizard_path do |f|
+  .row
+    .col-xs-4.text-left
+      = f.hidden_field :delivery, :value => 0
+      %p
+        = f.radio_button :delivery, 5 
+        UPS Ground + $5.00
+      %p
+        = f.radio_button :delivery, 10  
+        UPS One Day + $10.00
+      %p
+        = f.radio_button :delivery, 15  
+        UPS Two Day + $15.00
+      = f.submit "SAVE AND CONTINUE", class: "btn btn-primary"

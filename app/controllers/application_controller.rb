@@ -31,7 +31,7 @@ protected
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:email, :password, :password_confirmation, :current_password, :billing_address => {}, :shipping_address => {}, :credit_card => {})}
+    devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:email, :password, :current_password, :billing_address => {}, :shipping_address => {})}
   end
 
   def default_url_options(options = {})

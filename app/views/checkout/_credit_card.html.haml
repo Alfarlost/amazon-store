@@ -8,8 +8,9 @@
     .col-xs-4
       = f.text_field :number, :placeholder => "Card Number"
       Expiration date:
-      = f.select(:expiration_month, options_for_select(cc_months), :placeholder => "Month")
-      = f.select(:expiration_year, options_for_select(cc_years), :placeholder => "Year")
+      %h4
+        = f.select(:expiration_month, options_for_select(cc_months), :placeholder => "Month")
+        = f.select(:expiration_year, options_for_select(cc_years), :placeholder => "Year")
       = f.text_field :cvv, :placeholder => "Card Code"
       = link_to "(What's this?)", root_path
       = f.submit "SAVE AND CONTINUE", class: "btn btn-primary"

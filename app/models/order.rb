@@ -40,12 +40,10 @@ class Order < ActiveRecord::Base
   def set_customer(customer)
     self.billing_address = customer.billing_address.dup
     self.shipping_address = customer.shipping_address.dup
-    self.credit_card = customer.credit_card.dup
     self.customer = customer
     self.save
   end
   
-  private
   def recalculate_total_price
     orderitems.collect { |oi| oi.price }.sum
   end  

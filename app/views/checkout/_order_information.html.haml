@@ -1,0 +1,10 @@
+%p
+  Order subtotal:
+  = number_to_currency current_order.recalculate_total_price
+- if current_order.delivery.present?
+  %p
+    Delivery:
+    = number_to_currency current_order.delivery
+%p
+  Order Total:
+  = number_to_currency current_order.total_price

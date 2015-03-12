@@ -3,6 +3,7 @@
   .row
     .col-xs-12
       = render "layouts/steps"
-      = render "layouts/address", address: @checkout, address_path: wizard_path
+      = render "layouts/address", address: @checkout, address_path: wizard_path(:adresses)
+      = render "order_information"
 
       

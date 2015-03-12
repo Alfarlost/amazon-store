@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   post '/rate' => 'rater#create', :as => 'rate'
 resources :books, only: [:index, :show] do
 resources :ratings, only: [:new, :create]
