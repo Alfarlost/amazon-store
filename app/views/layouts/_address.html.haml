@@ -15,14 +15,14 @@
         SHIPPING ADDRESS
       Like Billing Address:
       = f.check_box :same_shipping_address, {}, "true", "false"
-      .row
-      = f.text_field :s_first_name, :placeholder => "First Name"
-      = f.text_field :s_last_name, :placeholder => "Last Name"
-      = f.text_field :s_adress, :placeholder => "Street Address"
-      = f.text_field :s_city, :placeholder => "City"
-      = f.text_field :s_country, :placeholder => "Country"
-      = f.number_field :s_zipcode, :placeholder => "Zip"
-      = f.phone_field :s_phone, :placeholder => "Phone"
+      #shipping-address.row
+        = f.text_field :s_first_name, :placeholder => "First Name"
+        = f.text_field :s_last_name, :placeholder => "Last Name"
+        = f.text_field :s_adress, :placeholder => "Street Address"
+        = f.text_field :s_city, :placeholder => "City"
+        = f.text_field :s_country, :placeholder => "Country"
+        = f.number_field :s_zipcode, :placeholder => "Zip"
+        = f.phone_field :s_phone, :placeholder => "Phone"
     .row
       = f.submit "SAVE AND CONTINUE", class: "btn btn-primary"
  

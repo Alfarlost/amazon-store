@@ -2,5 +2,7 @@
   Books for sale
   .row
     .col-xs-6.col-xs-offset-3
-      - @books.each do |book|
-        = render "books_row", book: book
+      #bestsellers.owl-carousel.owl-theme
+        - @books.each do |book|
+          .item
+            = render "books_row", book: book

@@ -14,6 +14,7 @@ class CheckoutController < ApplicationController
     if @checkout.update(checkout_params(step))
       render_wizard(@checkout)
     else
+      flash[:alert] = "We missed some of your information. Please go back and check."
       render_wizard
     end
   end

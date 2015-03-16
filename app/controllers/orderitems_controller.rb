@@ -4,7 +4,7 @@ class OrderitemsController < ApplicationController
   def create
   	@orderitem = current_order.orderitems.build(orderitem_params)
     if @orderitem.save
-      redirect_to :back, notice: "Book was added to cart!"
+      redirect_to :back, notice: I18n.t('orderitems.book.added')
     else
       redirect_to :back, notice: @orderitem.errors.first
     end
@@ -12,7 +12,7 @@ class OrderitemsController < ApplicationController
 
   def update
   	if @orderitem.update(orderitem_params)
-  	  redirect_to :back, notice: 'Quatity was updated'
+  	  redirect_to :back, notice: I18n.t('orderitems.book.updated')
     else
       redirect_to :back, notice: @orderitem.errors.first
     end
@@ -20,7 +20,7 @@ class OrderitemsController < ApplicationController
 
   def destroy
   	if @orderitem.destroy
-  	  redirect_to :back, notice: "Book was removed from cart!"
+  	  redirect_to :back, notice: I18n.t('orderitems.book.removed')
     else
       redirect_to :back, notice: @orderitem.errors.first
     end

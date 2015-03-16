@@ -7,9 +7,10 @@ feature "Registration" do
       fill_in 'Password', with: '12345678'
       fill_in 'Password confirmation', with: '12345678'
       click_button('Sign up')
-    expect(page).not_to have_content 'Sign up'
-    expect(page).to have_content 'Sign out'
+    expect(page).not_to have_content 'Log In'
+    expect(page).to have_content 'Log Out'
     expect(page).to have_content 'Settings'
     expect(page).to have_content 'Categories'
+    expect(page).to have_content I18n.t('devise.customers.customer.signed_up')
   end
 end

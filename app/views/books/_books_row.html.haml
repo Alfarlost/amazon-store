@@ -1,11 +1,15 @@
 .well
   .row
-    .col-xs-8
+    .col-xs-3
       = image_tag book.image_url
       %h4= book.title
+    %span
+    .col-xs-5.text-left
+      %p{:style => "word-wrap: break-word"}
+        = book.description
     .col-xs-4
       %h4.text-right 
         Unit Price:
-        %span(class="color: green")
         = number_to_currency book.price
+      .text-center  
         = link_to "See Details", book_path(book.id), class: "btn btn-primary"

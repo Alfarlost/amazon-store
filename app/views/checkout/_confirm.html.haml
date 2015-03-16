@@ -7,15 +7,19 @@
             %th
               %h5
                 = "Billing Address"
-                = link_to "(edit)", edit_billing_address_path
+                = link_to "(edit)", wizard_path(:adresses)
             %th 
               %h5
                 = "Shipping Address"
-                = link_to "(edit)", edit_shipping_address_path
+                = link_to "(edit)", wizard_path(:adresses)
+            %th
+              %h5
+                = "Delivery" 
+                = link_to "(edit)", wizard_path(:delivery)
             %th
               %h5
                 = "Credit Card" 
-                = link_to "(edit)", edit_credit_card_path
+                = link_to "(edit)", wizard_path(:payment)
         %tbody
           %tr
             %td
@@ -29,6 +33,13 @@
               %p= shipping_address.country
               %p= shipping_address.phone
             %td
+              - if current_order.delivery == 5 
+                %p= "UPS Ground + $5.00"
+              - elsif current_order.delivery == 10
+                %p= "UPS One Day + $10.00"
+              - elsif current_order.delivery == 15
+                %p= "UPS Two Day + $15.00"
+            %td
               %p= "************#{credit_card.number.last(3)}"
               %p= "#{credit_card.expiration_month}/#{credit_card.expiration_year}"
 = form_for order, :url => order_path do |f|
@@ -36,5 +47,10 @@
     .col-xs-12
       .text-center
         = link_to "PLACE ORDER", next_wizard_path, class: "btn btn-primary"
+  .row
+    .col-xs-12
+      %h6
+        - current_order.orderitems.each do |orderitem|
+          = render 'orders/order_row', book: orderitem.book, orderitem: orderitem, show_total: true
 
 
