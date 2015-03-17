@@ -32,6 +32,6 @@ private
   end
 
   def orderitem_params
-  	params.require(:orderitem).permit(:quantity, :book_id)
+  	params.require(:orderitem).permit(:quantity)
   end
 end

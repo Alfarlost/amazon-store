@@ -53,6 +53,8 @@ gem 'font-awesome-less'
 
 gem "ratyrate"
 
+gem "rack_session_access"
+
 gem "mini_magick"
 
 gem "virtus"
