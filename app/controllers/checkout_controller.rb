@@ -12,7 +12,7 @@ class CheckoutController < ApplicationController
   def update
     @checkout = Checkout.new(current_order)
     if @checkout.update(checkout_params(step))
-      jump_to("confirm") if current_order.billing_address.present? && current_order.shipping_address.present? && current_order.delivery.present? && current_order.credit_card.present?
+      jump_to("confirm") if current_order.finishable?
       render_wizard(@checkout)
     else
       flash[:alert] = I18n.t('checkout.errors.missing_data')

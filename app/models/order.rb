@@ -28,6 +28,10 @@ class Order < ActiveRecord::Base
     self.save
   end
 
+  def finishable?
+    return true if self.billing_address.present? && self.shipping_address.present? && self.delivery.present? && self.credit_card.present?
+  end
+
   def self.build_for_customer(customer)
     order = Order.new
     if customer.present?
