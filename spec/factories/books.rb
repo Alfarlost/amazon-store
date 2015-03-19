@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :book do
-    title "MyString"
-description "MyText"
-price 3
-bookinstock 1
-category_id 1
+    category
+    sequence(:title) {|n| "Book#{n}"}
+    description "MyText"
+    price 3
+    bookinstock 1
   end
 end

@@ -12,9 +12,10 @@ class CheckoutController < ApplicationController
   def update
     @checkout = Checkout.new(current_order)
     if @checkout.update(checkout_params(step))
+      jump_to("confirm") if current_order.billing_address.present? && current_order.shipping_address.present? && current_order.delivery.present? && current_order.credit_card.present?
       render_wizard(@checkout)
     else
-      flash[:alert] = "We missed some of your information. Please go back and check."
+      flash[:alert] = I18n.t('checkout.errors.missing_data')
       render_wizard
     end
   end
@@ -26,7 +27,7 @@ private
 
   def redirect_to_finish_wizard(options = nil)
     current_order.in_queue
-    redirect_to root_path, notice: "Your order is in queue now!"
+    redirect_to root_path, notice: I18n.t('order.state.in_queue')
   end
 
   def check_step_access

@@ -24,11 +24,6 @@ class OrdersController < ApplicationController
     @credit_card = current_order.credit_card
   end
 
-  def update
-    current_order.in_queue
-    redirect_to root_url, notice: "Your order is in queue now."
-  end
-
   private
     def set_order
       @order = Order.find(params[:id])

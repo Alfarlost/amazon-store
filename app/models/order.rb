@@ -38,8 +38,8 @@ class Order < ActiveRecord::Base
   end
 
   def set_customer(customer)
-    self.billing_address = customer.billing_address.dup
-    self.shipping_address = customer.shipping_address.dup
+    self.billing_address = customer.billing_address.dup if customer.billing_address.present?
+    self.shipping_address = customer.shipping_address.dup if customer.shipping_address.present?
     self.customer = customer
     self.save
   end

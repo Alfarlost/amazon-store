@@ -20,34 +20,43 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  checkout:
+    errors:
+      missing_data: "We missed some of your information. Please go back and check."
   orderitems:
     book:
       updated: "Quantity was updated"
       added: "Book was added to cart!"
       removed: "Book was removed from cart!"
+  order:
+    coupone_code:
+      right: "You got 5% discount"
+      unavailable: "Wrong Code."
+    state:
+      in_queue: "Your order is in queue now."
   activerecord:
     errors:
       messages:
         # Default messages: complete sentences
-        inclusion: ": is not included in the list"
-        exclusion: ": is reserved"
-        invalid: ": is invalid"
-        confirmation: ": doesn't match confirmation"
-        accepted: ": must be accepted"
-        empty: ": can't be empty"
-        blank: ": can't be blank"
-        too_long: ": is too long (maximum is %{count} characters)"
-        too_short: " is too short (minimum is %{count} characters)"
-        wrong_length: ": is the wrong length (should be %{count} characters)" 
-        taken: ": has already been taken"
-        not_a_number: ": is not a number"
-        greater_than: ": must be greater than %{count}"
-        greater_than_or_equal_to: ": must be greater than or equal to %{count}"
-        equal_to: ": must be equal to %{count}"
-        less_than: ": must be less than %{count}"
-        less_than_or_equal_to: ": must be less than or equal to %{count}"     
-        odd: ": must be odd"
-        even: ": must be even"
+        inclusion: "is not included in the list"
+        exclusion: "is reserved"
+        invalid: "is invalid"
+        confirmation: "doesn't match confirmation"
+        accepted: "must be accepted"
+        empty: "can't be empty"
+        blank: "can't be blank"
+        too_long: "is too long (maximum is %{count} characters)"
+        too_short: "is too short (minimum is %{count} characters)"
+        wrong_length: "is the wrong length (should be %{count} characters)" 
+        taken: "has already been taken"
+        not_a_number: "is not a number"
+        greater_than: "must be greater than %{count}"
+        greater_than_or_equal_to: "must be greater than or equal to %{count}"
+        equal_to: "must be equal to %{count}"
+        less_than: "must be less than %{count}"
+        less_than_or_equal_to: "must be less than or equal to %{count}"     
+        odd: "must be odd"
+        even: "must be even"
   carrierwave:
     errors:
       mesages: 

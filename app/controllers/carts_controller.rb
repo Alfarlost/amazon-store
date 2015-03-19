@@ -8,12 +8,12 @@ class CartsController < ApplicationController
       current_order.update(coupone_params)
       if current_order.coupone_code == current_order.discount.coupone_code
         current_order.calculate_discount
-        redirect_to :back, notice: "You got 5% discount"
+        redirect_to :back, notice: I18n.t('order.coupone_code.right')
       else
         redirect_to :back, alert: "Wrong Code."
       end
     else
-      redirect_to :back, alert: "Sorry. You already use this discount."
+      redirect_to :back, alert: I18n.t('order.coupone_code.unavailable')
     end
   end
 
