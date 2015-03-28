@@ -1,4 +1,4 @@
-%h1 Your Orders:
-.col-xs-6.col-xs-offset-2
-  - @orders.each do |order|
-    = render "orders_row", order: order
+%h1 
+  = t('order.views.orders_title')
+.col-xs-12
+  = render "orders_row"

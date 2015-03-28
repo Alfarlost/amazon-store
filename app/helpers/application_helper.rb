@@ -4,7 +4,7 @@ module ApplicationHelper
   	if admin_signed_in?
   	  current_admin
   	else
-  	  current_user
+  	  current_customer
   	end
   end	
 

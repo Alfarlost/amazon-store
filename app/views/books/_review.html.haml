@@ -1,5 +1,12 @@
+.row
+  .col-xs-4
+    Rating:
+    #{rating.rating} / 5
 .well
   .row
-    .col-xs-4
-      = rating.review
+    .col-xs-6.col-xs-offset-1.text-left{:style => "word-wrap: break-word"}   
+      %h4
+        Review from #{rating.rater_name}:
+      %p
+        = rating.review
 

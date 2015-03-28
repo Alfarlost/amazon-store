@@ -2,6 +2,6 @@
   Check Out
   .row
     .col-xs-8.col-xs-offset-2
-      = render "layouts/steps"
+      = render "steps"
       = render "delivery"
-      = render "order_information"
+      = render "order_information", order: current_order

@@ -37,7 +37,7 @@ feature "Sign In" do
   scenario "Visistor sign in with facebook" do
     visit new_customer_session_path
       set_omniauth(:info => {:email => "alfar@gfht.com"})
-      click_link 'Sign in with Facebook'
+      click_link 'Facebook'
     
     expect(page).to have_content 'Log Out'
     expect(page).to have_content 'Settings'

@@ -45,6 +45,8 @@ class Checkout
   validates :s_adress, :s_city, :s_phone, :s_country, :s_zipcode, :s_first_name, :s_last_name, presence: true, if: -> { required_for_step?(:adresses) }, if: -> { self.same_shipping_address == "false" }
   validates :delivery, presence: true, :numericality => {:greater_than => 0},  if: -> { required_for_step?(:delivery) } 
   validates :number, :cvv, :expiration_month, :expiration_year, presence: true, if: -> { required_for_step?(:payment) }
+  validates :number, length: { :is => 16, if: -> { required_for_step?(:payment) } }
+  validates :cvv, length: { :is => 3, if: -> { required_for_step?(:payment) } }
   
   def initialize(order)
     @order = order

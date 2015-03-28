@@ -29,5 +29,6 @@ private
 
   def update_order_total_price
     self.order.update_total_price
+    self.order.in_progress
   end
 end

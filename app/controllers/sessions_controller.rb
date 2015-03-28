@@ -1,6 +1,6 @@
 class SessionsController < Devise::SessionsController
 # before_filter :configure_sign_in_params, only: [:create]
-  after_filter :set_settings, only: [:create]
+  after_filter :reset_order, only: [:create]
 
   # GET /resource/sign_in
   def new
@@ -18,8 +18,8 @@ class SessionsController < Devise::SessionsController
   end
 
   protected
-  def set_settings
-    current_order.set_customer(resource)
+  def reset_order
+    session[:order_id] = nil
   end
   # You can put the params you want to permit in the empty array.
   # def configure_sign_in_params

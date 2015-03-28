@@ -15,7 +15,7 @@ class CheckoutController < ApplicationController
       jump_to("confirm") if current_order.finishable?
       render_wizard(@checkout)
     else
-      flash[:alert] = I18n.t('checkout.errors.missing_data')
+      flash.now[:alert] = I18n.t('checkout.errors.missing_data')
       render_wizard
     end
   end

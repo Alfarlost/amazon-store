@@ -17,13 +17,13 @@
               PRICE
             %h4.text-right 
               = number_to_currency orderitem.unit_price
-      = form_for orderitem, :url => orderitem_path(orderitem.id) do |f|
+      = f.fields_for 'orderitems[]', orderitem do |oi|
         .col-xs-1 
           %td
             .text-center
               QTY
-            = f.number_field :quantity, value: orderitem.quantity.to_i, class: "form-control", min: 1
-            = f.hidden_field :book_id, {value: book.id}
+            = oi.number_field :quantity, value: orderitem.quantity.to_i, class: "form-control", min: 1
+            = oi.hidden_field :book_id, {value: book.id}
         .col-xs-1
           %td
             TOTAL

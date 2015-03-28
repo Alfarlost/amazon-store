@@ -38,7 +38,7 @@ feature "Registration" do
   scenario "Visistor sign up with facebook" do
     visit new_customer_registration_path
       set_omniauth
-      click_link 'Sign in with Facebook'
+      click_link 'Facebook'
     
     expect(page).to have_content 'Log Out'
     expect(page).to have_content 'Settings'

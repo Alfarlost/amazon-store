@@ -75,6 +75,23 @@ RailsAdmin.config do |config|
       end
     end
 
+    config.model 'Rating' do
+      list do
+        include_all_fields
+      end
+      show do
+        include_all_fields
+      end
+      edit do
+        field :rating
+        field :review
+        field :aasm_state, :enum do
+          enum do
+            ["not_approved", "approved"]
+          end
+        end
+      end
+    end
 
 
 

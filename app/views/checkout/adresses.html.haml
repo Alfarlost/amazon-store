@@ -2,8 +2,8 @@
   Check Out
   .row
     .col-xs-12
-      = render "layouts/steps"
-      = render "layouts/address", address: @checkout, address_path: wizard_path(:adresses)
-      = render "order_information"
+      = render "steps"
+      = render "address", address: @checkout, address_path: wizard_path(:adresses)
+      = render "order_information", order: current_order
 
       

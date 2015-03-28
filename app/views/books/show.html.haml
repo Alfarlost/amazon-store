@@ -8,4 +8,5 @@
       Reviews:
       = link_to "(Add new Review)", new_book_rating_path(@book.id)
     - @ratings.each do |rating|
-      = render "review", rating: rating
+      - if rating.approved?
+        = render "review", rating: rating

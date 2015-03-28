@@ -1,0 +1,13 @@
+.col-xs-12
+  %table.table.text-left  
+    %tbody
+      %tr 
+        %td.col-xs-1
+          = order.id
+        %td.col-xs-6.text-center
+          = order.completed_data
+        %td.col-xs-3
+          = number_to_currency order.total_price
+        %td.col-xs-2
+          = link_to t("orders.views.table.view"), edit_order_path(order.id)
+  

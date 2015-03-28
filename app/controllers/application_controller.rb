@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   def current_order
     if session[:order_id].present?
       order = Order.find(session[:order_id])
-      if order.state != "in progress"    
+      if order.state != "in progress" 
         order = Order.build_for_customer(current_customer)
         session[:order_id] = order.id
       end

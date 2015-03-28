@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
-
+ load_and_autorize_resource only: :show
 	def index
-      @books = Book.bestsellers(3)
+    @books = Book.bestsellers(3)
 	end
 
 	def show

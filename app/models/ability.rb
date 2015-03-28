@@ -16,10 +16,9 @@ class Ability
       can :read, Category
       can :manage, Order, customer_id: customer.id
       cannot :destroy, Order
-      can :manage, OrderItem, ["order.user_id == ?", user.id] do |order_item|
-        order_item.order.user_id==user.id
+      can :manage, OrderItem, ["order.customer_id == ?", customer.id] do |orderitem|
+        orderitem.order.customer_id == customer.id
       end
-      can :manage, CrediCard, customer_id: customer.id
       can :new, Rating
       can :read, Rating
       can :update, Rating, customer_id: customer.id
@@ -27,7 +26,7 @@ class Ability
       can :update, Customer, customer.id
       can :manage, Address, customer_id: customer.id
     else
-      can :manage, CrediCard
+      can :update, Order
       can :read, Book
       can :read, Category
       can :read, Rating

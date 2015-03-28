@@ -23,6 +23,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 
+gem 'aasm'
+
 gem 'owlcarousel-rails'
 
 gem 'jquery-turbolinks'
@@ -50,8 +52,6 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 gem 'font-awesome-less'
-
-gem "ratyrate"
 
 gem "rack_session_access"
 

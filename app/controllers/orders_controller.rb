@@ -1,7 +1,11 @@
 class OrdersController < ApplicationController
-  before_filter :set_order, only: [:edit,  :destroy]
+  before_filter :set_order, only: [:edit, :destroy]
   def index
     @orders = current_customer.orders
+    @order_in_progress = @orders.with_state("in progress").first
+    @orders_in_queue = @orders.with_state("in queue")
+    @orders_complited = @orders.with_state("complited")
+    @orders_shipped = @orders.with_state("shipped")
   end
 
   def edit
@@ -9,23 +13,16 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    @order.state = "canceled"
+    @order.cancel
     if @order.save
-      flash[:notice] = "Your Order ##{@order.id} was canceled."
-      redirect_to orders_path 
+      redirect_to orders_path, notice: "Your Order ##{@order.id} was canceled."
     else
-      redirect_to :back, notice: "Something happened."
+      redirect_to :back, notice: "You can't cancel this order."
     end
-  end  
-
-  def show
-    @billing_address = current_order.billing_address
-    @shipping_address = current_order.shipping_address
-    @credit_card = current_order.credit_card
   end
 
-  private
-    def set_order
-      @order = Order.find(params[:id])
-    end
+private
+  def set_order
+    @order = Order.find(params[:id])
+  end
 end
