@@ -8,25 +8,22 @@ class Ability
       can :manage, Book
       can :manage, Author
       can :manage, Category
-      can :read, Rating
-      can :update, Rating
+      can [:read, :update], Rating
       can :manage, Order
     elsif user.is_a?(Customer)
-      can :read, Book
-      can :read, Category
-      can :manage, Order, customer_id: customer.id
+      can :read, [Book, Category]
+      can :manage, Order, customer_id: user.id
       cannot :destroy, Order
-      can :manage, OrderItem, ["order.customer_id == ?", customer.id] do |orderitem|
-        orderitem.order.customer_id == customer.id
+      can :manage, Orderitem, Orderitem.where(:order_id => user.orders.ids).order(id: :desc) do |orderitem|
+        orderitem.order.customer_id == user.id
       end
-      can :new, Rating
-      can :read, Rating
-      can :update, Rating, customer_id: customer.id
-      can :read, Customer, customer.id
-      can :update, Customer, customer.id
-      can :manage, Address, customer_id: customer.id
+      can [:new, :read, :create], Rating
+      can :update, Rating, customer_id: user.id
+      can [:read, :update], Customer, user.id
+      can :manage, Address, customer_id: user.id
     else
-      can :update, Order
+      can :manage, Orderitem
+      can :apply_discount, Order
       can :read, Book
       can :read, Category
       can :read, Rating

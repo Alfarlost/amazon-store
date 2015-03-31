@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :set_locale
   helper_method :current_order
+  alias_method :current_user, :current_customer
 
   def current_order
     if session[:order_id].present?

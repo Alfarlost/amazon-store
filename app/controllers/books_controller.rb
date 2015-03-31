@@ -1,12 +1,12 @@
 class BooksController < ApplicationController
- load_and_autorize_resource only: :show
-	def index
-    @books = Book.bestsellers(3)
-	end
+ load_and_authorize_resource only: :show
+  def index
+    authorize! :index, Book
+    @books = Book.bestsellers(3).accessible_by(current_ability)
+  end
 
-	def show
-	  @book = Book.find(params[:id])
-	  @orderitem = current_order.orderitems.build
-	  @ratings = @book.ratings
-	end
+  def show
+    @orderitem = current_order.orderitems.build
+    @ratings = @book.ratings
+  end
 end

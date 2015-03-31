@@ -8,5 +8,5 @@
     = render 'checkout/order_information', order: @order
   .text-center    
     - if @order.state == "in queue"
-      = link_to "Cancel Order", order_path(@order.id), :method => :delete, class: "btn btn-primary"
+      = link_to "Cancel Order", cancel_order_path(@order.id), class: "btn btn-primary"
     = link_to "Back to Orders", orders_path, class: "btn btn-primary"

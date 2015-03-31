@@ -1,0 +1,38 @@
+.well
+  .row
+    .table{:style => "word-wrap: break-word"}
+      %tr
+        .col-xs-2
+          %td
+            = image_tag book.image_url
+        .col-xs-7
+          %td
+            .text-center
+              BOOK
+            %h4= book.title
+            #{book.description}
+        .col-xs-1
+          %td
+            .text-right
+              PRICE
+            %h4.text-right 
+              = number_to_currency orderitem.unit_price
+      = f.fields_for 'orderitems[]', orderitem do |oi|
+        .col-xs-1 
+          %td
+            .text-center
+              QTY
+            = oi.number_field :quantity, value: orderitem.quantity.to_i, class: "form-control", min: 1
+            = oi.hidden_field :book_id, {value: book.id}
+        .col-xs-1
+          %td
+            TOTAL
+            %h4
+              = number_to_currency orderitem.price
+        .row
+          .col-xs-12.text-right
+            .btn-group
+              = f.submit "Update Quantity", class: "btn btn-primary"
+              = link_to "Delete", orderitem, { data: { confirm: "Are you shure you wish to delete the book '#{orderitem.book.title }' from your cart?" }, method: :delete, :url => orderitem_path(orderitem.id), class: "btn btn-danger" }
+        
+        

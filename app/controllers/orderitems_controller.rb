@@ -1,29 +1,36 @@
 class OrderitemsController < ApplicationController
-  before_filter :set_items, :only => :destroy
+  load_and_authorize_resource :only => :destroy
+  load_and_authorize_resource :through => :current_order, :only => [:create, :index]
+  load_and_authorize_resource :index => :update_orderitems, :through => :current_order
+  
+  def index
+    render 'cart/show'
+  end
 
   def create
-  	@orderitem = current_order.orderitems.build(orderitem_params)
     if @orderitem.save
       redirect_to cart_path, notice: I18n.t('orderitems.book.added')
     else
-      redirect_to :back, notice: @orderitem.errors.first
-    end
-  end
-
-  def update
-    if current_order.orderitems.update(orderitems_params[:orderitems].keys, orderitems_params[:orderitems].values)
-      redirect_to cart_path, notice: I18n.t('orderitems.book.updated')
-    else
-      redirect_to :back, notice: @orderitems.errors.first
+      redirect_to :back, alert: @orderitem.errors.first
     end
   end
 
   def destroy
-  	if @orderitem.destroy
-  	  redirect_to :back, notice: I18n.t('orderitems.book.removed')
+    if @orderitem.destroy
+      flash[:notice] = I18n.t('orderitems.book.removed')
     else
-      redirect_to :back, notice: @orderitem.errors.first
+      flash[:alert] = @orderitem.errors.first
     end
+    redirect_to cart_path
+  end
+
+  def update_orderitems
+    if @orderitems.update(orderitems_params[:orderitems].keys, orderitems_params[:orderitems].values)
+      flash.now[:notice] = I18n.t('orderitems.book.updated')
+    else
+      flash.now[:alert] = @orderitems.errors.first
+    end
+    render 'cart/show'
   end
 
 private

@@ -15,6 +15,10 @@ feature "Shop" do
       expect(page).to have_content "Reviews: (Add new Review)"
   end
   scenario "Visitor chose second book and want see details" do
+    visit categories_path
+      click_link 'Category1'
+
+    expect(page).to have_content 
   end 
 
 end
