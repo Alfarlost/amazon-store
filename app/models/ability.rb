@@ -23,7 +23,7 @@ class Ability
       can :manage, Address, customer_id: user.id
     else
       can :manage, Orderitem
-      can :apply_discount, Order
+      can [:show, :apply_discount], Order
       can :read, Book
       can :read, Category
       can :read, Rating
