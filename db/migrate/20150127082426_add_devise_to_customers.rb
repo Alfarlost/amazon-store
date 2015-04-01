@@ -2,7 +2,7 @@ class AddDeviseToCustomers < ActiveRecord::Migration
   def self.up
     change_table(:customers) do |t|
       ## Database authenticatable
-      t.email,              null: false, default: ""
+      t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
