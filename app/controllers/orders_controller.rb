@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   load_and_authorize_resource :through => :current_customer, only: :index
-  load_and_authorize_resource only: :edit
+  load_and_authorize_resource only: [:edit, :show]
   load_and_authorize_resource :edit => :cancel 
   
   def index
@@ -8,6 +8,10 @@ class OrdersController < ApplicationController
     @orders_in_queue = @orders.with_state("in queue")
     @orders_complited = @orders.with_state("complited")
     @orders_shipped = @orders.with_state("shipped")
+  end
+
+  def show
+    render 'checkout/complete'
   end
 
   def edit

@@ -3,4 +3,4 @@
   .row
     .col-xs-8.col-xs-offset-2
       = render "steps"
-      = render "confirm", billing_address: current_order.billing_address, shipping_address: current_order.shipping_address, credit_card: current_order.credit_card, order: @checkout, order_path: wizard_path
+      = render "confirm", billing_address: current_order.billing_address, shipping_address: current_order.shipping_address, credit_card: current_order.credit_card, order: @checkout, this_order: current_order, order_path: wizard_path, current_step: "confirm"

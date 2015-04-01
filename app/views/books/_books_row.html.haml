@@ -1,13 +1,13 @@
 .well
   .row
-    .col-xs-3
+    .col-xs-4
       = image_tag book.image_url
       %h4= book.title
     %span
     .col-xs-5.text-left
       %p{:style => "word-wrap: break-word"}
         = book.small_description
-    .col-xs-4
+    .col-xs-3
       %h4.text-right 
         Unit Price:
         = number_to_currency book.price

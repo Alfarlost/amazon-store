@@ -26,8 +26,9 @@ private
   end
 
   def redirect_to_finish_wizard(options = nil)
+    current_order_id = current_order.id
     current_order.in_queue
-    redirect_to root_path, notice: I18n.t('order.state.in_queue')
+    redirect_to order_path(current_order_id), notice: I18n.t('order.state.in_queue')
   end
 
   def check_step_access

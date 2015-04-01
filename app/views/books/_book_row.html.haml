@@ -1,11 +1,11 @@
 .well
   .row
     %h4= book.title
-    .col-xs-2
+    .col-xs-3
       = image_tag book.image_url
-    .col-xs-6{:style => "word-wrap: break-word"}
+    .col-xs-7{:style => "word-wrap: break-word"}
       %p.text-left= book.description
-    .col-xs-4
+    .col-xs-2
       = form_for @orderitem, :url => orderitems_path do |f|
         %h4.text-right 
           Unit Price:

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   resources :orderitems, only: [:create, :destroy]
   resources :categories, only: [:index, :show]
-  resources :orders, only: [:index, :edit, :update] do
+  resources :orders, only: [:index, :show, :edit, :update] do
     get 'cancel', on: :member
   end
   resources :checkout, only: [:show, :update]
