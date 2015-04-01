@@ -9,6 +9,8 @@ Book.create! id: 6, title: "Banana", price: 0.49, bookinstock: 1, category_id: 1
 Book.create! id: 4, title: "Banana", price: 0.49, bookinstock: 1, category_id: 1, description: "lksdhgljdfhsgkjhdfgherihgrdguhdfkghdfkjjfkjdgkjdfhgkjdfkjghkjdfhgkjldfhgkjhdfkjghldfkhgkldfhgkjhdfkjlghkjdfhgkldfhgkjlhdfkjghlkdfhgkljdfhgkjldfhkghdfklghkdfjlhgkjldfhgkjdfhlkjghdfkghkdjfhgkjdfhgkjhdkjghdkfhgkjldfhgklhdfklghdfklhgldkhglkdfhgldh"
 Book.create! id: 2, title: "Apple", price: 0.29, bookinstock: 1, category_id: 2, description: "lksdhgljdfhsgkjhdfgherihgrdguhdfkghdfkjjfkjdgkjdfhgkjdfkjghkjdfhgkjldfhgkjhdfkjghldfkhgkldfhgkjhdfkjlghkjdfhgkldfhgkjlhdfkjghlkdfhgkljdfhgkjldfhkghdfklghkdfjlhgkjldfhgkjdfhlkjghdfkghkdjfhgkjdfhgkjhdkjghdkfhgkjldfhgklhdfklghdfklhgldkhglkdfhgldh"
 Book.create! id: 3, title: "Carton of Strawberries", price: 1.99, bookinstock: 1, category_id: 3, description: "lksdhgljdfhsgkjhdfgherihgrdguhdfkghdfkjjfkjdgkjdfhgkjdfkjghkjdfhgkjldfhgkjhdfkjghldfkhgkldfhgkjhdfkjlghkjdfhgkldfhgkjlhdfkjghlkdfhgkljdfhgkjldfhkghdfklghkdfjlhgkjldfhgkjdfhlkjghdfkghkdjfhgkjdfhgkjhdkjghdkfhgkjldfhgklhdfklghdfklhgldkhglkdfhgldh"
+Admin.delete_all
+Admin.create! id: 1, email: "alfarlost@yandex.ru", password: "zaqwer12"
 Discount.delete_all
 Discount.create! id: 1, coupone_code: "DISK", discount: 0.05
 
