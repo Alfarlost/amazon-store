@@ -4,7 +4,6 @@ class CustomersController < Devise::RegistrationsController
   end
 
   def update
-    super
     if resource.shipping_address.present?
       resource.shipping_address.update(shipping_address_params)
     else
@@ -15,7 +14,8 @@ class CustomersController < Devise::RegistrationsController
     else
       resource.create_billing_address(billing_address_params)
     end
-    current_order.set_customer(resource) if resource.billing_address.present? && resource.shipping_address.present?
+    current_order.set_customer(resource)
+    super
   end
 
 private

@@ -23,6 +23,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 
+gem 'aasm'
+
 gem 'owlcarousel-rails'
 
 gem 'jquery-turbolinks'
@@ -51,7 +53,7 @@ gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootst
 
 gem 'font-awesome-less'
 
-gem "ratyrate"
+gem "rack_session_access"
 
 gem "mini_magick"
 
@@ -74,6 +76,7 @@ gem 'pry-byebug'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'faker'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -91,8 +94,9 @@ group :development, :test do
 end
 
 group :test do
+  gem 'simplecov', :require => false
   gem 'capybara'
-  gem 'faker'
   gem 'shoulda-matchers', require: false
+  gem 'shoulda-callback-matchers', '~> 1.1.1'
   gem 'database_cleaner'
 end

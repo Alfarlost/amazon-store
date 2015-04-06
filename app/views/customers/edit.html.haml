@@ -1,47 +1,69 @@
 %h2
   Edit #{resource_name.to_s.humanize}
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  .field
+  .field.col-xs-6{:style => "height:auto; overflow: auto"}
+    %h4
+      Billing Address
     = fields_for :billing_address, resource.billing_address do |address|
-      = address.text_field :adress
-      = address.text_field :first_name
-      = address.text_field :last_name
-      = address.text_field :city
-      = address.text_field :country
-      = address.text_field :zipcode
-      = address.text_field :phone
-      = address.submit "Update"
-  .field
+      = address.text_field :adress, :placeholder => "Street Address"
+      %br/
+      = address.text_field :first_name, :placeholder => "First Name"
+      %br/
+      = address.text_field :last_name, :placeholder => "Last Name"
+      %br/
+      = address.text_field :city, :placeholder => "City"
+      %br/
+      = address.text_field :country, :placeholder => "Country"
+      %br/
+      = address.number_field :zipcode, :placeholder => "Zip"
+      %br/
+      = address.text_field :phone, :placeholder => "Phone"
+      %br/
+      = address.submit "Update", class: 'btn btn-primary'
+  .field.col-xs-6{:style => "height:auto; overflow: auto"}
+    %h4
+      Shipping Address
     = fields_for :shipping_address, resource.shipping_address do |address|
-      = address.text_field :adress
-      = address.text_field :first_name
-      = address.text_field :last_name
-      = address.text_field :city
-      = address.text_field :country
-      = address.text_field :zipcode
-      = address.text_field :phone
-      = address.submit "Update"
-  = devise_error_messages!
-  .field
+      = address.text_field :adress, :placeholder => "Street Address"
+      %br/
+      = address.text_field :first_name, :placeholder => "First Name"
+      %br/
+      = address.text_field :last_name, :placeholder => "Last Name"
+      %br/
+      = address.text_field :city, :placeholder => "City"
+      %br/
+      = address.text_field :country, :placeholder => "Country"
+      %br/
+      = address.number_field :zipcode, :placeholder => "Zip"
+      %br/
+      = address.text_field :phone, :placeholder => "Phone"
+      %br/
+      = address.submit "Update", class: 'btn btn-primary'
+  .field.col-xs-6{:style => "height:auto; overflow: auto"}
+    %h4
+      EMAIL
     = f.label :email
     %br/
     = f.email_field :email, autofocus: true
+    = f.submit "Update", class: 'btn btn-primary'
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     %div
       Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
+  .field.col-xs-6{:style => "height:auto; overflow: auto"}
+    = devise_error_messages!
+    %h4
+      PASSWORD
     = f.label :password
     %i (leave blank if you don't want to change it)
     %br/
     = f.password_field :password, autocomplete: "off"
-  .field
+    %br/
     = f.label :current_password
     %i (we need your current password to confirm your changes)
-    %br/
     = f.password_field :current_password, autocomplete: "off"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+    = f.submit "Update", class: 'btn btn-primary'
+.col-xs-3.col-xs-offset-3.text-center 
+  %h3 Cancel my account
+  %p
+    Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+  = link_to "Back", :back

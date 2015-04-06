@@ -1,0 +1,6 @@
+%h3.text-center
+  Check Out
+  .row
+    .col-xs-8.col-xs-offset-2
+      = render "checkout/finished_steps"
+      = render "checkout/confirm", billing_address: @order.billing_address, shipping_address: @order.shipping_address, credit_card: @order.credit_card, order: @order, order_path: checkout_path(:confirm), this_order: @order, current_step: "complete"

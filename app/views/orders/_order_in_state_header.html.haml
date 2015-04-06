@@ -1,0 +1,14 @@
+%h3
+  = order.first.state.upcase
+.col-xs-12
+  %table.table.text-left
+    %theah
+      %tr
+        %th.col-xs-1
+          = t('order.views.table.number')
+        %th.col-xs-6.text-center
+          = t('order.views.table.complited_at')
+        %th.col-xs-3
+          = t('order.views.table.total')
+        %th.col-xs-2
+          = t('book.views.details')

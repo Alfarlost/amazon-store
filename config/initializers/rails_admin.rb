@@ -75,7 +75,47 @@ RailsAdmin.config do |config|
       end
     end
 
+    config.model 'Rating' do
+      list do
+        include_all_fields
+      end
+      show do
+        include_all_fields
+      end
+      edit do
+        field :rating
+        field :review
+        field :aasm_state, :enum do
+          enum do
+            ["not_approved", "approved"]
+          end
+        end
+      end
+    end
 
+    config.model 'Orderitem' do 
+      object_label_method :rails_admin_link
+      include_all_fields
+    end
 
+    config.model 'CreditCard' do 
+      object_label_method :number
+      include_all_fields
+    end
+
+    config.model 'Address' do 
+      object_label_method :adress
+      include_all_fields
+    end
+
+    config.model 'BillingAddress' do 
+      object_label_method :adress
+      include_all_fields
+    end
+
+    config.model 'ShippingAddress' do 
+      object_label_method :adress
+      include_all_fields
+    end
 
 end

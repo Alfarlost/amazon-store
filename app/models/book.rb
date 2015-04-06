@@ -12,7 +12,8 @@ class Book < ActiveRecord::Base
   def self.bestsellers(count)
     joins(:orderitems).group('books.id').order("sum(quantity) DESC").limit(count)
   end
-
+  
+  private
   def set_small_description
     self.small_description = "#{self.description.first(150)}..."
   end

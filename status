@@ -1,0 +1,611 @@
+=> [32m#<ActionController::TestResponse:0x000000053cc418[0m
+ @blank[32m=[0m[1;36mfalse[0m,
+ @cache_control[32m=[0m{},
+ @charset[32m=[0m[31m[1;31m"[0m[31mutf-8[1;31m"[0m[31m[0m,
+ @committed[32m=[0m[1;36mfalse[0m,
+ @content_type[32m=[0m
+  [32m#<Mime::Type:0x00000001c91c28[0m
+   @string[32m=[0m[31m[1;31m"[0m[31mtext/html[1;31m"[0m[31m[0m,
+   @symbol[32m=[0m[33m:html[0m,
+   @synonyms[32m=[0m[[31m[1;31m"[0m[31mapplication/xhtml+xml[1;31m"[0m[31m[0m][32m>[0m,
+ @cv[32m=[0m
+  [32m#<MonitorMixin::ConditionVariable:0x00000007123e30[0m
+   @cond[32m=[0m[32m#<Thread::ConditionVariable:0x00000007123de0[0m[32m>[0m,
+   @monitor[32m=[0m[32m#<ActionController::TestResponse:0x000000053cc418[0m ...[32m>[0m[32m>[0m,
+ @etag[32m=[0m[1;36mnil[0m,
+ @header[32m=[0m
+  {[31m[1;31m"[0m[31mX-Frame-Options[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mSAMEORIGIN[1;31m"[0m[31m[0m,
+   [31m[1;31m"[0m[31mX-XSS-Protection[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m1; mode=block[1;31m"[0m[31m[0m,
+   [31m[1;31m"[0m[31mX-Content-Type-Options[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mnosniff[1;31m"[0m[31m[0m,
+   [31m[1;31m"[0m[31mLocation[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttp://test.host/checkout/confirm?locale=en[1;31m"[0m[31m[0m,
+   [31m[1;31m"[0m[31mSet-Cookie[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mrequest_method=PUT; path=/[1;31m"[0m[31m[0m,
+   [31m[1;31m"[0m[31mContent-Type[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mtext/html; charset=utf-8[1;31m"[0m[31m[0m},
+ @mon_count[32m=[0m[1;34m0[0m,
+ @mon_mutex[32m=[0m[32m#<Mutex:0x00000007123ef8[0m[32m>[0m,
+ @mon_owner[32m=[0m[1;36mnil[0m,
+ @request[32m=[0m
+  [32m#<ActionController::TestRequest:0x000000053cccd8[0m
+   @cookies[32m=[0m{},
+   @env[32m=[0m
+    {[31m[1;31m"[0m[31mrack.version[1;31m"[0m[31m[0m=>[[1;34m1[0m, [1;34m3[0m],
+     [31m[1;31m"[0m[31mrack.input[1;31m"[0m[31m[0m=>[32m#<StringIO:0x0000000713a9f0[0m[32m>[0m,
+     [31m[1;31m"[0m[31mrack.errors[1;31m"[0m[31m[0m=>[32m#<StringIO:0x00000005300110[0m[32m>[0m,
+     [31m[1;31m"[0m[31mrack.multithread[1;31m"[0m[31m[0m=>[1;36mtrue[0m,
+     [31m[1;31m"[0m[31mrack.multiprocess[1;31m"[0m[31m[0m=>[1;36mtrue[0m,
+     [31m[1;31m"[0m[31mrack.run_once[1;31m"[0m[31m[0m=>[1;36mfalse[0m,
+     [31m[1;31m"[0m[31mREQUEST_METHOD[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mPUT[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31mSERVER_NAME[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mexample.org[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31mSERVER_PORT[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m80[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31mQUERY_STRING[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mlocale=en[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31mrack.url_scheme[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttp[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31mHTTPS[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31moff[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31mSCRIPT_NAME[1;31m"[0m[31m[0m=>[1;36mnil[0m,
+     [31m[1;31m"[0m[31mCONTENT_LENGTH[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m0[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31mHTTP_HOST[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mtest.host[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31mREMOTE_ADDR[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m0.0.0.0[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31mHTTP_USER_AGENT[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mRails Testing[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31maction_dispatch.routes[1;31m"[0m[31m[0m=>
+      [32m#<ActionDispatch::Routing::RouteSet:0x00000005601968>[0m,
+     [31m[1;31m"[0m[31maction_dispatch.parameter_filter[1;31m"[0m[31m[0m=>[[33m:password[0m],
+     [31m[1;31m"[0m[31maction_dispatch.redirect_filter[1;31m"[0m[31m[0m=>[],
+     [31m[1;31m"[0m[31maction_dispatch.secret_token[1;31m"[0m[31m[0m=>[1;36mnil[0m,
+     [31m[1;31m"[0m[31maction_dispatch.secret_key_base[1;31m"[0m[31m[0m=>
+      [31m[1;31m"[0m[31m0c8550ff6f237925213092e0058df8d2a24085e3bf4426960458e20d5cd072019fda365c1109859ed6e0bdb34adea2bccf3e134fb4f8b391458e7e95bdf585c2[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31maction_dispatch.show_exceptions[1;31m"[0m[31m[0m=>[1;36mfalse[0m,
+     [31m[1;31m"[0m[31maction_dispatch.show_detailed_exceptions[1;31m"[0m[31m[0m=>[1;36mtrue[0m,
+     [31m[1;31m"[0m[31maction_dispatch.logger[1;31m"[0m[31m[0m=>
+      [32m#<ActiveSupport::Logger:0x00000005223a08[0m
+       @default_formatter[32m=[0m
+        [32m#<Logger::Formatter:0x00000005223968[0m @datetime_format[32m=[0m[1;36mnil[0m[32m>[0m,
+       @formatter[32m=[0m
+        [32m#<ActiveSupport::Logger::SimpleFormatter:0x00000005a580e8[0m
+         @datetime_format[32m=[0m[1;36mnil[0m[32m>[0m,
+       @level[32m=[0m[1;34m0[0m,
+       @logdev[32m=[0m
+        [32m#<Logger::LogDevice:0x000000052238f0[0m
+         @dev[32m=[0m[32m#<File:/home/alfar/Desktop/amazon-store/log/test.log>[0m,
+         @filename[32m=[0m[1;36mnil[0m,
+         @mutex[32m=[0m
+          [32m#<Logger::LogDevice::LogDeviceMutex:0x000000052238a0[0m
+           @mon_count[32m=[0m[1;34m0[0m,
+           @mon_mutex[32m=[0m[32m#<Mutex:0x000000052237b0[0m[32m>[0m,
+           @mon_owner[32m=[0m[1;36mnil[0m[32m>[0m,
+         @shift_age[32m=[0m[1;36mnil[0m,
+         @shift_size[32m=[0m[1;36mnil[0m[32m>[0m,
+       @progname[32m=[0m[1;36mnil[0m[32m>[0m,
+     [31m[1;31m"[0m[31maction_dispatch.backtrace_cleaner[1;31m"[0m[31m[0m=>
+      [32m#<Rails::BacktraceCleaner:0x00000008224ea0[0m
+       @filters[32m=[0m
+        [[32m#<Proc:0x00000008224d60@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/railties-4.2.0/lib/rails/backtrace_cleaner.rb:14>[0m,
+         [32m#<Proc:0x00000008224d38@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/railties-4.2.0/lib/rails/backtrace_cleaner.rb:15>[0m,
+         [32m#<Proc:0x00000008224d10@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/railties-4.2.0/lib/rails/backtrace_cleaner.rb:16>[0m,
+         [32m#<Proc:0x000000082246d0@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/railties-4.2.0/lib/rails/backtrace_cleaner.rb:29>[0m],
+       @root[32m=[0m[31m[1;31m"[0m[31m/home/alfar/Desktop/amazon-store/[1;31m"[0m[31m[0m,
+       @silencers[32m=[0m
+        [[32m#<Proc:0x000000082246a8@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/railties-4.2.0/lib/rails/backtrace_cleaner.rb:19>[0m][32m>[0m,
+     [31m[1;31m"[0m[31maction_dispatch.key_generator[1;31m"[0m[31m[0m=>
+      [32m#<ActiveSupport::CachingKeyGenerator:0x00000008058810[0m
+       @cache_keys[32m=[0m
+        [32m#<ThreadSafe::Cache:0x000000080587e8[0m
+         @backend[32m=[0m
+          {[31m[1;31m"[0m[31msigned_global_ids64[1;31m"[0m[31m[0m=>
+            [31m[1;31m"[0m[31m3#[1;35m\xAE[0m[31m[1;35m\xFB[0m[31mX[1;35m\xF7[0m[31m}[1;35m\xF2[0m[31m?N[1;35m\xDE[0m[31m[1;35m\x83[0m[31m[1;35m\xE2[0m[31m[1;35m\x19[0m[31m[1;35m\xFE[0m[31m[1;35m\xF9[0m[31m[1;35m\xED[0m[31ms1[1;35m\xFD[0m[31m[1;35m\xA6[0m[31m[1;35m\xD3[0m[31m[1;35m\xBE[0m[31m[1;35m\x7F[0m[31mX([1;35m\x86[0m[31m[1;35m\xEC[0m[31mt[1;35m\x84[0m[31mok[1;35m\x1A[0m[31mG[1;35m\xCE[0m[31mB[1;35m\x96[0m[31m[1;35m\x13[0m[31m[1;35m\x81[0m[31mz[1;35m\n[0m[31mzv[1;35m\x9C[0m[31m[1;35m\f[0m[31m[1;35m\xA5[0m[31m;[1;35m\xB0[0m[31m_[1;35m\x04[0m[31m[1;35m\b[0m[31mu@u*6][1;35m\e[0m[31mC*{[1;35m\xEE[0m[31m[1;35m\xBF[0m[31mx[1;31m"[0m[31m[0m,
+           [31m[1;31m"[0m[31msigned cookie64[1;31m"[0m[31m[0m=>
+            [31m[1;31m"[0m[31mw[1;35m\xE4[0m[31mM*[1;35m\xFD[0m[31mw[1;35m\x06[0m[31m[1;35m\xD3[0m[31mt[1;35m\xC9[0m[31m[1;35m\xC5[0m[31m[1;35m\xEA[0m[31m[1;35m\xE4[0m[31mM:d@[1;35m\xBD[0m[31m[1;35m\n[0m[31m-[1;35m\xC8[0m[31m[1;35m\r[0m[31m[1;35m\x0F[0m[31m w:ps~ we[1;35m\x83[0m[31m[1;35m\xF0[0m[31m[1;35m\xCF[0m[31m[1;35m\xDB[0m[31m[1;35m\xC8[0m[31mU[1;35m\xF4[0m[31mt[1;35m\xC3[0m[31m[1;35m\xE3[0m[31m[1;35m\x17[0m[31m[1;35m\\[0m[31mm[1;35m\x02[0m[31m[1;35m\xEE[0m[31m[1;35m\xF1[0m[31m[1;35m\xE6[0m[31mK>[1;35m\xAC[0m[31m[1;35m\xA8[0m[31mn[1;35m\xD7[0m[31mF[1;35m\xFF[0m[31m)'[1;35m\xB0[0m[31mV[1;35m\x9F[0m[31m[1;35m\xC2[0m[31mU[1;31m"[0m[31m[0m},
+         @default_proc[32m=[0m[1;36mnil[0m[32m>[0m,
+       @key_generator[32m=[0m
+        [32m#<ActiveSupport::KeyGenerator:0x00000008058838[0m
+         @iterations[32m=[0m[1;34m1000[0m,
+         @secret[32m=[0m
+          [31m[1;31m"[0m[31m0c8550ff6f237925213092e0058df8d2a24085e3bf4426960458e20d5cd072019fda365c1109859ed6e0bdb34adea2bccf3e134fb4f8b391458e7e95bdf585c2[1;31m"[0m[31m[0m[32m>[0m[32m>[0m,
+     [31m[1;31m"[0m[31maction_dispatch.http_auth_salt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttp authentication[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31maction_dispatch.signed_cookie_salt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31msigned cookie[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31maction_dispatch.encrypted_cookie_salt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mencrypted cookie[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31maction_dispatch.encrypted_signed_cookie_salt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31msigned encrypted cookie[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31maction_dispatch.cookies_serializer[1;31m"[0m[31m[0m=>[33m:json[0m,
+     [31m[1;31m"[0m[31maction_dispatch.cookies_digest[1;31m"[0m[31m[0m=>[1;36mnil[0m,
+     [31m[1;31m"[0m[31mrack.session[1;31m"[0m[31m[0m=>{},
+     [31m[1;31m"[0m[31mrack.session.options[1;31m"[0m[31m[0m=>
+      {[33m:key[0m=>[31m[1;31m"[0m[31mrack.session[1;31m"[0m[31m[0m,
+       [33m:path[0m=>[31m[1;31m"[0m[31m/[1;31m"[0m[31m[0m,
+       [33m:domain[0m=>[1;36mnil[0m,
+       [33m:expire_after[0m=>[1;36mnil[0m,
+       [33m:secure[0m=>[1;36mfalse[0m,
+       [33m:httponly[0m=>[1;36mtrue[0m,
+       [33m:defer[0m=>[1;36mfalse[0m,
+       [33m:renew[0m=>[1;36mfalse[0m,
+       [33m:sidbits[0m=>[1;34m128[0m,
+       [33m:cookie_only[0m=>[1;36mtrue[0m,
+       [33m:secure_random[0m=>[1;34;4mSecureRandom[0m,
+       [33m:id[0m=>[31m[1;31m"[0m[31mda6b0b1d3095cd1b35eb6a3749053035[1;31m"[0m[31m[0m},
+     [31m[1;31m"[0m[31maction_controller.instance[1;31m"[0m[31m[0m=>
+      [32m#<CheckoutController:0x000000053cd3b8[0m
+       @_action_has_layout[32m=[0m[1;36mtrue[0m,
+       @_action_name[32m=[0m[31m[1;31m"[0m[31mupdate[1;31m"[0m[31m[0m,
+       @_config[32m=[0m{},
+       @_env[32m=[0m{},
+       @_headers[32m=[0m{[31m[1;31m"[0m[31mContent-Type[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mtext/html[1;31m"[0m[31m[0m},
+       @_lookup_context[32m=[0m
+        [32m#<ActionView::LookupContext:0x00000007123b10[0m
+         @cache[32m=[0m[1;36mtrue[0m,
+         @details[32m=[0m
+          {[33m:locale[0m=>[[33m:en[0m],
+           [33m:formats[0m=>[[33m:html[0m],
+           [33m:variants[0m=>[],
+           [33m:handlers[0m=>
+            [[33m:erb[0m, [33m:builder[0m, [33m:raw[0m, [33m:ruby[0m, [33m:coffee[0m, [33m:haml[0m, [33m:jbuilder[0m]},
+         @details_key[32m=[0m[1;36mnil[0m,
+         @prefixes[32m=[0m[[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mapplication[1;31m"[0m[31m[0m],
+         @rendered_format[32m=[0m[1;36mnil[0m,
+         @skip_default_locale[32m=[0m[1;36mfalse[0m,
+         @view_paths[32m=[0m
+          [32m#<ActionView::PathSet:0x000000071239f8[0m
+           @paths[32m=[0m
+            [[32m#<RSpec::Rails::ViewRendering::EmptyTemplatePathSetDecorator:0x000000053eadf0[0m
+              @original_path_set[32m=[0m
+               [32m#<ActionView::PathSet:0x000000053aad90[0m
+                @paths[32m=[0m
+                 [[32m#<ActionView::OptimizedFileSystemResolver:0x000000075d7df0[0m
+                   @cache[32m=[0m
+                    [32m#<ActionView::Resolver::Cache:0x000000075d7dc8[0m
+                     @data[32m=[0m
+                      [32m#<ActionView::Resolver::Cache::SmallCache:0x000000075d7da0[0m
+                       @backend[32m=[0m
+                        {[32m#<ActionView::LookupContext::DetailsKey:0x000000010fb828[0m
+                          @hash[32m=[0m[1;34m1612309709274454937[0m[32m>[0m=>
+                          [32m#<ActionView::Resolver::Cache::SmallCache:0x000000010fb558[0m
+                           @backend[32m=[0m
+                            {[31m[1;31m"[0m[31madresses[1;31m"[0m[31m[0m=>
+                              [32m#<ActionView::Resolver::Cache::SmallCache:0x000000010fb490[0m
+                               @backend[32m=[0m
+                                {[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m=>
+                                  [32m#<ActionView::Resolver::Cache::SmallCache:0x000000010fb2d8[0m
+                                   @backend[32m=[0m
+                                    {[1;36mfalse[0m=>
+                                      [32m#<ActionView::Resolver::Cache::SmallCache:0x000000010fb198[0m
+                                       @backend[32m=[0m{[]=>[]},
+                                       @default_proc[32m=[0m[1;36mnil[0m[32m>[0m},
+                                   @default_proc[32m=[0m
+                                    [32m#<Proc:0x00000003262d90@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:46 (lambda)>[0m[32m>[0m},
+                               @default_proc[32m=[0m
+                                [32m#<Proc:0x00000003262d40@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:47 (lambda)>[0m[32m>[0m,
+                             [31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m=>
+                              [32m#<ActionView::Resolver::Cache::SmallCache:0x000000010fe370[0m
+                               @backend[32m=[0m
+                                {[31m[1;31m"[0m[31mlayouts[1;31m"[0m[31m[0m=>
+                                  [32m#<ActionView::Resolver::Cache::SmallCache:0x000000010fe258[0m
+                                   @backend[32m=[0m
+                                    {[1;36mfalse[0m=>
+                                      [32m#<ActionView::Resolver::Cache::SmallCache:0x000000010fe168[0m
+                                       @backend[32m=[0m{[]=>[]},
+                                       @default_proc[32m=[0m[1;36mnil[0m[32m>[0m},
+                                   @default_proc[32m=[0m
+                                    [32m#<Proc:0x00000003262d90@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:46 (lambda)>[0m[32m>[0m},
+                               @default_proc[32m=[0m
+                                [32m#<Proc:0x00000003262d40@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:47 (lambda)>[0m[32m>[0m,
+                             [31m[1;31m"[0m[31mapplication[1;31m"[0m[31m[0m=>
+                              [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001117528[0m
+                               @backend[32m=[0m
+                                {[31m[1;31m"[0m[31mlayouts[1;31m"[0m[31m[0m=>
+                                  [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001116880[0m
+                                   @backend[32m=[0m
+                                    {[1;36mfalse[0m=>
+                                      [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001115f98[0m
+                                       @backend[32m=[0m{[]=>[]},
+                                       @default_proc[32m=[0m[1;36mnil[0m[32m>[0m},
+                                   @default_proc[32m=[0m
+                                    [32m#<Proc:0x00000003262d90@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:46 (lambda)>[0m[32m>[0m},
+                               @default_proc[32m=[0m
+                                [32m#<Proc:0x00000003262d40@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:47 (lambda)>[0m[32m>[0m,
+                             [31m[1;31m"[0m[31mpayment[1;31m"[0m[31m[0m=>
+                              [32m#<ActionView::Resolver::Cache::SmallCache:0x00000005855e80[0m
+                               @backend[32m=[0m
+                                {[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m=>
+                                  [32m#<ActionView::Resolver::Cache::SmallCache:0x00000005855750[0m
+                                   @backend[32m=[0m
+                                    {[1;36mfalse[0m=>
+                                      [32m#<ActionView::Resolver::Cache::SmallCache:0x000000058551b0[0m
+                                       @backend[32m=[0m{[]=>[]},
+                                       @default_proc[32m=[0m[1;36mnil[0m[32m>[0m},
+                                   @default_proc[32m=[0m
+                                    [32m#<Proc:0x00000003262d90@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:46 (lambda)>[0m[32m>[0m},
+                               @default_proc[32m=[0m
+                                [32m#<Proc:0x00000003262d40@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:47 (lambda)>[0m[32m>[0m},
+                           @default_proc[32m=[0m
+                            [32m#<Proc:0x00000003262d18@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:48 (lambda)>[0m[32m>[0m},
+                       @default_proc[32m=[0m
+                        [32m#<Proc:0x00000003262cf0@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:49 (lambda)>[0m[32m>[0m[32m>[0m,
+                   @path[32m=[0m
+                    [31m[1;31m"[0m[31m/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/web-console-2.0.0/lib/action_dispatch/templates[1;31m"[0m[31m[0m,
+                   @pattern[32m=[0m
+                    [31m[1;31m"[0m[31m:prefix/:action{.:locale,}{.:formats,}{+:variants,}{.:handlers,}[1;31m"[0m[31m[0m[32m>[0m,
+                  [32m#<ActionView::OptimizedFileSystemResolver:0x0000000556a950[0m
+                   @cache[32m=[0m
+                    [32m#<ActionView::Resolver::Cache:0x0000000556a928[0m
+                     @data[32m=[0m
+                      [32m#<ActionView::Resolver::Cache::SmallCache:0x0000000556a8d8[0m
+                       @backend[32m=[0m
+                        {[32m#<ActionView::LookupContext::DetailsKey:0x000000010fb828[0m
+                          @hash[32m=[0m[1;34m1612309709274454937[0m[32m>[0m=>
+                          [32m#<ActionView::Resolver::Cache::SmallCache:0x000000010f9dc0[0m
+                           @backend[32m=[0m
+                            {[31m[1;31m"[0m[31madresses[1;31m"[0m[31m[0m=>
+                              [32m#<ActionView::Resolver::Cache::SmallCache:0x000000010f9cf8[0m
+                               @backend[32m=[0m
+                                {[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m=>
+                                  [32m#<ActionView::Resolver::Cache::SmallCache:0x000000010f9be0[0m
+                                   @backend[32m=[0m
+                                    {[1;36mfalse[0m=>
+                                      [32m#<ActionView::Resolver::Cache::SmallCache:0x000000010f98c0[0m
+                                       @backend[32m=[0m
+                                        {[]=>
+                                          [app/views/checkout/adresses.html.haml]},
+                                       @default_proc[32m=[0m[1;36mnil[0m[32m>[0m},
+                                   @default_proc[32m=[0m
+                                    [32m#<Proc:0x00000003262d90@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:46 (lambda)>[0m[32m>[0m},
+                               @default_proc[32m=[0m
+                                [32m#<Proc:0x00000003262d40@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:47 (lambda)>[0m[32m>[0m,
+                             [31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m=>
+                              [32m#<ActionView::Resolver::Cache::SmallCache:0x000000010fd178[0m
+                               @backend[32m=[0m
+                                {[31m[1;31m"[0m[31mlayouts[1;31m"[0m[31m[0m=>
+                                  [32m#<ActionView::Resolver::Cache::SmallCache:0x000000010fd060[0m
+                                   @backend[32m=[0m
+                                    {[1;36mfalse[0m=>
+                                      [32m#<ActionView::Resolver::Cache::SmallCache:0x000000010fce08[0m
+                                       @backend[32m=[0m{[]=>[]},
+                                       @default_proc[32m=[0m[1;36mnil[0m[32m>[0m},
+                                   @default_proc[32m=[0m
+                                    [32m#<Proc:0x00000003262d90@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:46 (lambda)>[0m[32m>[0m},
+                               @default_proc[32m=[0m
+                                [32m#<Proc:0x00000003262d40@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:47 (lambda)>[0m[32m>[0m,
+                             [31m[1;31m"[0m[31mapplication[1;31m"[0m[31m[0m=>
+                              [32m#<ActionView::Resolver::Cache::SmallCache:0x000000011145a8[0m
+                               @backend[32m=[0m
+                                {[31m[1;31m"[0m[31mlayouts[1;31m"[0m[31m[0m=>
+                                  [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001114440[0m
+                                   @backend[32m=[0m
+                                    {[1;36mfalse[0m=>
+                                      [32m#<ActionView::Resolver::Cache::SmallCache:0x000000011140f8[0m
+                                       @backend[32m=[0m
+                                        {[]=>
+                                          [app/views/layouts/application.html.haml]},
+                                       @default_proc[32m=[0m[1;36mnil[0m[32m>[0m},
+                                   @default_proc[32m=[0m
+                                    [32m#<Proc:0x00000003262d90@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:46 (lambda)>[0m[32m>[0m},
+                               @default_proc[32m=[0m
+                                [32m#<Proc:0x00000003262d40@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:47 (lambda)>[0m[32m>[0m,
+                             [31m[1;31m"[0m[31mpayment[1;31m"[0m[31m[0m=>
+                              [32m#<ActionView::Resolver::Cache::SmallCache:0x0000000586dd50[0m
+                               @backend[32m=[0m
+                                {[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m=>
+                                  [32m#<ActionView::Resolver::Cache::SmallCache:0x0000000586dc60[0m
+                                   @backend[32m=[0m
+                                    {[1;36mfalse[0m=>
+                                      [32m#<ActionView::Resolver::Cache::SmallCache:0x0000000586da08[0m
+                                       @backend[32m=[0m
+                                        {[]=>
+                                          [app/views/checkout/payment.html.haml]},
+                                       @default_proc[32m=[0m[1;36mnil[0m[32m>[0m},
+                                   @default_proc[32m=[0m
+                                    [32m#<Proc:0x00000003262d90@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:46 (lambda)>[0m[32m>[0m},
+                               @default_proc[32m=[0m
+                                [32m#<Proc:0x00000003262d40@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:47 (lambda)>[0m[32m>[0m},
+                           @default_proc[32m=[0m
+                            [32m#<Proc:0x00000003262d18@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:48 (lambda)>[0m[32m>[0m},
+                       @default_proc[32m=[0m
+                        [32m#<Proc:0x00000003262cf0@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:49 (lambda)>[0m[32m>[0m[32m>[0m,
+                   @path[32m=[0m[31m[1;31m"[0m[31m/home/alfar/Desktop/amazon-store/app/views[1;31m"[0m[31m[0m,
+                   @pattern[32m=[0m
+                    [31m[1;31m"[0m[31m:prefix/:action{.:locale,}{.:formats,}{+:variants,}{.:handlers,}[1;31m"[0m[31m[0m[32m>[0m,
+                  [32m#<ActionView::OptimizedFileSystemResolver:0x0000000556b490[0m
+                   @cache[32m=[0m
+                    [32m#<ActionView::Resolver::Cache:0x0000000556b468[0m
+                     @data[32m=[0m
+                      [32m#<ActionView::Resolver::Cache::SmallCache:0x0000000556b440[0m
+                       @backend[32m=[0m
+                        {[32m#<ActionView::LookupContext::DetailsKey:0x000000010fb828[0m
+                          @hash[32m=[0m[1;34m1612309709274454937[0m[32m>[0m=>
+                          [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001106db8[0m
+                           @backend[32m=[0m
+                            {[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m=>
+                              [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001106b88[0m
+                               @backend[32m=[0m
+                                {[31m[1;31m"[0m[31mlayouts[1;31m"[0m[31m[0m=>
+                                  [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001106a48[0m
+                                   @backend[32m=[0m
+                                    {[1;36mfalse[0m=>
+                                      [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001106818[0m
+                                       @backend[32m=[0m{[]=>[]},
+                                       @default_proc[32m=[0m[1;36mnil[0m[32m>[0m},
+                                   @default_proc[32m=[0m
+                                    [32m#<Proc:0x00000003262d90@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:46 (lambda)>[0m[32m>[0m},
+                               @default_proc[32m=[0m
+                                [32m#<Proc:0x00000003262d40@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:47 (lambda)>[0m[32m>[0m},
+                           @default_proc[32m=[0m
+                            [32m#<Proc:0x00000003262d18@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:48 (lambda)>[0m[32m>[0m},
+                       @default_proc[32m=[0m
+                        [32m#<Proc:0x00000003262cf0@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:49 (lambda)>[0m[32m>[0m[32m>[0m,
+                   @path[32m=[0m
+                    [31m[1;31m"[0m[31m/home/alfar/.rvm/gems/ruby-2.1.5@amazon/bundler/gems/teaspoon-83440f080185/app/views[1;31m"[0m[31m[0m,
+                   @pattern[32m=[0m
+                    [31m[1;31m"[0m[31m:prefix/:action{.:locale,}{.:formats,}{+:variants,}{.:handlers,}[1;31m"[0m[31m[0m[32m>[0m,
+                  [32m#<ActionView::OptimizedFileSystemResolver:0x000000055856d8[0m
+                   @cache[32m=[0m
+                    [32m#<ActionView::Resolver::Cache:0x000000055856b0[0m
+                     @data[32m=[0m
+                      [32m#<ActionView::Resolver::Cache::SmallCache:0x00000005585638[0m
+                       @backend[32m=[0m
+                        {[32m#<ActionView::LookupContext::DetailsKey:0x000000010fb828[0m
+                          @hash[32m=[0m[1;34m1612309709274454937[0m[32m>[0m=>
+                          [32m#<ActionView::Resolver::Cache::SmallCache:0x0000000110b4a8[0m
+                           @backend[32m=[0m
+                            {[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m=>
+                              [32m#<ActionView::Resolver::Cache::SmallCache:0x0000000110b048[0m
+                               @backend[32m=[0m
+                                {[31m[1;31m"[0m[31mlayouts[1;31m"[0m[31m[0m=>
+                                  [32m#<ActionView::Resolver::Cache::SmallCache:0x0000000110ad00[0m
+                                   @backend[32m=[0m
+                                    {[1;36mfalse[0m=>
+                                      [32m#<ActionView::Resolver::Cache::SmallCache:0x0000000110aa80[0m
+                                       @backend[32m=[0m{[]=>[]},
+                                       @default_proc[32m=[0m[1;36mnil[0m[32m>[0m},
+                                   @default_proc[32m=[0m
+                                    [32m#<Proc:0x00000003262d90@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:46 (lambda)>[0m[32m>[0m},
+                               @default_proc[32m=[0m
+                                [32m#<Proc:0x00000003262d40@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:47 (lambda)>[0m[32m>[0m},
+                           @default_proc[32m=[0m
+                            [32m#<Proc:0x00000003262d18@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:48 (lambda)>[0m[32m>[0m},
+                       @default_proc[32m=[0m
+                        [32m#<Proc:0x00000003262cf0@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:49 (lambda)>[0m[32m>[0m[32m>[0m,
+                   @path[32m=[0m
+                    [31m[1;31m"[0m[31m/home/alfar/.rvm/gems/ruby-2.1.5@amazon/bundler/gems/twitter-bootstrap-rails-cd805c721770/app/views[1;31m"[0m[31m[0m,
+                   @pattern[32m=[0m
+                    [31m[1;31m"[0m[31m:prefix/:action{.:locale,}{.:formats,}{+:variants,}{.:handlers,}[1;31m"[0m[31m[0m[32m>[0m,
+                  [32m#<ActionView::OptimizedFileSystemResolver:0x000000055869e8[0m
+                   @cache[32m=[0m
+                    [32m#<ActionView::Resolver::Cache:0x00000005586970[0m
+                     @data[32m=[0m
+                      [32m#<ActionView::Resolver::Cache::SmallCache:0x00000005586948[0m
+                       @backend[32m=[0m
+                        {[32m#<ActionView::LookupContext::DetailsKey:0x000000010fb828[0m
+                          @hash[32m=[0m[1;34m1612309709274454937[0m[32m>[0m=>
+                          [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001109068[0m
+                           @backend[32m=[0m
+                            {[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m=>
+                              [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001108eb0[0m
+                               @backend[32m=[0m
+                                {[31m[1;31m"[0m[31mlayouts[1;31m"[0m[31m[0m=>
+                                  [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001108ac8[0m
+                                   @backend[32m=[0m
+                                    {[1;36mfalse[0m=>
+                                      [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001108820[0m
+                                       @backend[32m=[0m{[]=>[]},
+                                       @default_proc[32m=[0m[1;36mnil[0m[32m>[0m},
+                                   @default_proc[32m=[0m
+                                    [32m#<Proc:0x00000003262d90@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:46 (lambda)>[0m[32m>[0m},
+                               @default_proc[32m=[0m
+                                [32m#<Proc:0x00000003262d40@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:47 (lambda)>[0m[32m>[0m},
+                           @default_proc[32m=[0m
+                            [32m#<Proc:0x00000003262d18@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:48 (lambda)>[0m[32m>[0m},
+                       @default_proc[32m=[0m
+                        [32m#<Proc:0x00000003262cf0@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:49 (lambda)>[0m[32m>[0m[32m>[0m,
+                   @path[32m=[0m
+                    [31m[1;31m"[0m[31m/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/rails_admin-0.6.6/app/views[1;31m"[0m[31m[0m,
+                   @pattern[32m=[0m
+                    [31m[1;31m"[0m[31m:prefix/:action{.:locale,}{.:formats,}{+:variants,}{.:handlers,}[1;31m"[0m[31m[0m[32m>[0m,
+                  [32m#<ActionView::OptimizedFileSystemResolver:0x0000000559c158[0m
+                   @cache[32m=[0m
+                    [32m#<ActionView::Resolver::Cache:0x0000000559c108[0m
+                     @data[32m=[0m
+                      [32m#<ActionView::Resolver::Cache::SmallCache:0x0000000559c018[0m
+                       @backend[32m=[0m
+                        {[32m#<ActionView::LookupContext::DetailsKey:0x000000010fb828[0m
+                          @hash[32m=[0m[1;34m1612309709274454937[0m[32m>[0m=>
+                          [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001113298[0m
+                           @backend[32m=[0m
+                            {[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m=>
+                              [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001113158[0m
+                               @backend[32m=[0m
+                                {[31m[1;31m"[0m[31mlayouts[1;31m"[0m[31m[0m=>
+                                  [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001113040[0m
+                                   @backend[32m=[0m
+                                    {[1;36mfalse[0m=>
+                                      [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001112f00[0m
+                                       @backend[32m=[0m{[]=>[]},
+                                       @default_proc[32m=[0m[1;36mnil[0m[32m>[0m},
+                                   @default_proc[32m=[0m
+                                    [32m#<Proc:0x00000003262d90@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:46 (lambda)>[0m[32m>[0m},
+                               @default_proc[32m=[0m
+                                [32m#<Proc:0x00000003262d40@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:47 (lambda)>[0m[32m>[0m},
+                           @default_proc[32m=[0m
+                            [32m#<Proc:0x00000003262d18@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:48 (lambda)>[0m[32m>[0m},
+                       @default_proc[32m=[0m
+                        [32m#<Proc:0x00000003262cf0@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:49 (lambda)>[0m[32m>[0m[32m>[0m,
+                   @path[32m=[0m
+                    [31m[1;31m"[0m[31m/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/kaminari-0.16.2/app/views[1;31m"[0m[31m[0m,
+                   @pattern[32m=[0m
+                    [31m[1;31m"[0m[31m:prefix/:action{.:locale,}{.:formats,}{+:variants,}{.:handlers,}[1;31m"[0m[31m[0m[32m>[0m,
+                  [32m#<ActionView::OptimizedFileSystemResolver:0x000000055a04d8[0m
+                   @cache[32m=[0m
+                    [32m#<ActionView::Resolver::Cache:0x000000055a0460[0m
+                     @data[32m=[0m
+                      [32m#<ActionView::Resolver::Cache::SmallCache:0x000000055a0438[0m
+                       @backend[32m=[0m
+                        {[32m#<ActionView::LookupContext::DetailsKey:0x000000010fb828[0m
+                          @hash[32m=[0m[1;34m1612309709274454937[0m[32m>[0m=>
+                          [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001111b00[0m
+                           @backend[32m=[0m
+                            {[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m=>
+                              [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001111998[0m
+                               @backend[32m=[0m
+                                {[31m[1;31m"[0m[31mlayouts[1;31m"[0m[31m[0m=>
+                                  [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001111768[0m
+                                   @backend[32m=[0m
+                                    {[1;36mfalse[0m=>
+                                      [32m#<ActionView::Resolver::Cache::SmallCache:0x00000001111538[0m
+                                       @backend[32m=[0m{[]=>[]},
+                                       @default_proc[32m=[0m[1;36mnil[0m[32m>[0m},
+                                   @default_proc[32m=[0m
+                                    [32m#<Proc:0x00000003262d90@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:46 (lambda)>[0m[32m>[0m},
+                               @default_proc[32m=[0m
+                                [32m#<Proc:0x00000003262d40@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:47 (lambda)>[0m[32m>[0m},
+                           @default_proc[32m=[0m
+                            [32m#<Proc:0x00000003262d18@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:48 (lambda)>[0m[32m>[0m},
+                       @default_proc[32m=[0m
+                        [32m#<Proc:0x00000003262cf0@/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/actionview-4.2.0/lib/action_view/template/resolver.rb:49 (lambda)>[0m[32m>[0m[32m>[0m,
+                   @path[32m=[0m
+                    [31m[1;31m"[0m[31m/home/alfar/.rvm/gems/ruby-2.1.5@amazon/gems/devise-3.4.1/app/views[1;31m"[0m[31m[0m,
+                   @pattern[32m=[0m
+                    [31m[1;31m"[0m[31m:prefix/:action{.:locale,}{.:formats,}{+:variants,}{.:handlers,}[1;31m"[0m[31m[0m[32m>[0m][32m>[0m[32m>[0m][32m>[0m[32m>[0m,
+       @_params[32m=[0m
+        {[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m=>{},
+         [31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31madresses[1;31m"[0m[31m[0m,
+         [31m[1;31m"[0m[31mcontroller[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m,
+         [31m[1;31m"[0m[31maction[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mupdate[1;31m"[0m[31m[0m},
+       @_request[32m=[0m[32m#<ActionController::TestRequest:0x000000053cccd8[0m ...[32m>[0m,
+       @_response[32m=[0m[32m#<ActionController::TestResponse:0x000000053cc418[0m ...[32m>[0m,
+       @_response_body[32m=[0m
+        [[31m[1;31m"[0m[31m<html><body>You are being <a href=[1;35m\"[0m[31mhttp://test.host/checkout/confirm?locale=en[1;35m\"[0m[31m>redirected</a>.</body></html>[1;31m"[0m[31m[0m],
+       @_routes[32m=[0m[1;36mnil[0m,
+       @_status[32m=[0m[1;34m200[0m,
+       @_url_options[32m=[0m
+        {[33m:host[0m=>[31m[1;31m"[0m[31mtest.host[1;31m"[0m[31m[0m,
+         [33m:port[0m=>[1;36mnil[0m,
+         [33m:protocol[0m=>[31m[1;31m"[0m[31mhttp://[1;31m"[0m[31m[0m,
+         [33m:_recall[0m=>
+          {[33m:id[0m=>[31m[1;31m"[0m[31madresses[1;31m"[0m[31m[0m, [33m:controller[0m=>[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m, [33m:action[0m=>[31m[1;31m"[0m[31mupdate[1;31m"[0m[31m[0m},
+         [33m:locale[0m=>[33m:en[0m},
+       @checkout[32m=[0m
+        [32m#<Checkout:0x00000007153158[0m
+         @b_adress[32m=[0m[31m[1;31m"[0m[31mBilling[1;31m"[0m[31m[0m,
+         @b_city[32m=[0m[31m[1;31m"[0m[31mMyString[1;31m"[0m[31m[0m,
+         @b_country[32m=[0m[31m[1;31m"[0m[31mMyString[1;31m"[0m[31m[0m,
+         @b_first_name[32m=[0m[31m[1;31m"[0m[31mJonh[1;31m"[0m[31m[0m,
+         @b_last_name[32m=[0m[31m[1;31m"[0m[31mDoe[1;31m"[0m[31m[0m,
+         @b_phone[32m=[0m[31m[1;31m"[0m[31mMyString[1;31m"[0m[31m[0m,
+         @b_zipcode[32m=[0m[1;34m325[0m,
+         @cvv[32m=[0m[31m[1;31m"[0m[31m987[1;31m"[0m[31m[0m,
+         @delivery[32m=[0m[1;34m10[0m,
+         @errors[32m=[0m
+          [32m#<ActiveModel::Errors:0x000000071938e8[0m
+           @base[32m=[0m[32m#<Checkout:0x00000007153158[0m ...[32m>[0m,
+           @messages[32m=[0m{}[32m>[0m,
+         @expiration_month[32m=[0m[1;34m2[0m,
+         @expiration_year[32m=[0m[1;34m2016[0m,
+         @form_step[32m=[0m[31m[1;31m"[0m[31madresses[1;31m"[0m[31m[0m,
+         @number[32m=[0m[31m[1;31m"[0m[31m1234567891234567[1;31m"[0m[31m[0m,
+         @order[32m=[0m
+          [32m#<Order:0x000000054a3468[0m
+           id: [1;34m5[0m,
+           total_price: [1;36mnil[0m,
+           completed_data: [1;36mnil[0m,
+           state: [31m[1;31m"[0m[31min_progress[1;31m"[0m[31m[0m,
+           customer_id: [1;36mnil[0m,
+           credit_card_id: [1;36mnil[0m,
+           created_at: [1;34;4mSun[0m, [1;34m05[0m [1;34;4mApr[0m [1;34m2015[0m [1;34m21[0m:[1;34m09[0m:[1;34m14[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+           updated_at: [1;34;4mSun[0m, [1;34m05[0m [1;34;4mApr[0m [1;34m2015[0m [1;34m21[0m:[1;34m09[0m:[1;34m14[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+           coupone_code: [1;36mnil[0m,
+           delivery: [1;34m10[0m,
+           total_price_without_discount: [1;36mnil[0m,
+           total_price_with_discount: [1;36mnil[0m[32m>[0m,
+         @s_adress[32m=[0m[31m[1;31m"[0m[31mShipping[1;31m"[0m[31m[0m,
+         @s_city[32m=[0m[31m[1;31m"[0m[31mMyString[1;31m"[0m[31m[0m,
+         @s_country[32m=[0m[31m[1;31m"[0m[31mMyString[1;31m"[0m[31m[0m,
+         @s_first_name[32m=[0m[31m[1;31m"[0m[31mJonh[1;31m"[0m[31m[0m,
+         @s_last_name[32m=[0m[31m[1;31m"[0m[31mDoe[1;31m"[0m[31m[0m,
+         @s_phone[32m=[0m[31m[1;31m"[0m[31mMyString[1;31m"[0m[31m[0m,
+         @s_zipcode[32m=[0m[1;34m325[0m,
+         @validation_context[32m=[0m[1;36mnil[0m[32m>[0m,
+       @marked_for_same_origin_verification[32m=[0m[1;36mfalse[0m,
+       @next_step[32m=[0m[31m[1;31m"[0m[31mdelivery[1;31m"[0m[31m[0m,
+       @previous_step[32m=[0m[31m[1;31m"[0m[31madresses[1;31m"[0m[31m[0m,
+       @skip_to[32m=[0m[31m[1;31m"[0m[31mconfirm[1;31m"[0m[31m[0m,
+       @step[32m=[0m[31m[1;31m"[0m[31madresses[1;31m"[0m[31m[0m,
+       @wicked_redirect_params[32m=[0m{},
+       @wizard_steps[32m=[0m[[31m[1;31m"[0m[31madresses[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mdelivery[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mpayment[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mconfirm[1;31m"[0m[31m[0m][32m>[0m,
+     [31m[1;31m"[0m[31mwarden[1;31m"[0m[31m[0m=>
+      [1;34;4mWarden[0m::[1;34;4mProxy[0m:[1;34m43995100[0m @config={[33m:default_scope[0m=>[33m:admin[0m, [33m:scope_defaults[0m=>{}, [33m:default_strategies[0m=>{[33m:admin[0m=>[[33m:rememberable[0m, [33m:database_authenticatable[0m], [33m:customer[0m=>[[33m:rememberable[0m, [33m:database_authenticatable[0m]}, [33m:intercept_401[0m=>[1;36mfalse[0m, [33m:failure_app[0m=>[1;34m#<Devise::Delegator:0x000000086902c8>}[0m,
+     [31m[1;31m"[0m[31maction_dispatch.request.query_parameters[1;31m"[0m[31m[0m=>{},
+     [31m[1;31m"[0m[31maction_dispatch.cookies[1;31m"[0m[31m[0m=>
+      [32m#<ActionDispatch::Cookies::CookieJar:0x0000000711c608[0m
+       @committed[32m=[0m[1;36mfalse[0m,
+       @cookies[32m=[0m{[31m[1;31m"[0m[31mrequest_method[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mPUT[1;31m"[0m[31m[0m},
+       @delete_cookies[32m=[0m{},
+       @host[32m=[0m[31m[1;31m"[0m[31mtest.host[1;31m"[0m[31m[0m,
+       @key_generator[32m=[0m
+        [32m#<ActiveSupport::CachingKeyGenerator:0x00000008058810[0m
+         @cache_keys[32m=[0m
+          [32m#<ThreadSafe::Cache:0x000000080587e8[0m
+           @backend[32m=[0m
+            {[31m[1;31m"[0m[31msigned_global_ids64[1;31m"[0m[31m[0m=>
+              [31m[1;31m"[0m[31m3#[1;35m\xAE[0m[31m[1;35m\xFB[0m[31mX[1;35m\xF7[0m[31m}[1;35m\xF2[0m[31m?N[1;35m\xDE[0m[31m[1;35m\x83[0m[31m[1;35m\xE2[0m[31m[1;35m\x19[0m[31m[1;35m\xFE[0m[31m[1;35m\xF9[0m[31m[1;35m\xED[0m[31ms1[1;35m\xFD[0m[31m[1;35m\xA6[0m[31m[1;35m\xD3[0m[31m[1;35m\xBE[0m[31m[1;35m\x7F[0m[31mX([1;35m\x86[0m[31m[1;35m\xEC[0m[31mt[1;35m\x84[0m[31mok[1;35m\x1A[0m[31mG[1;35m\xCE[0m[31mB[1;35m\x96[0m[31m[1;35m\x13[0m[31m[1;35m\x81[0m[31mz[1;35m\n[0m[31mzv[1;35m\x9C[0m[31m[1;35m\f[0m[31m[1;35m\xA5[0m[31m;[1;35m\xB0[0m[31m_[1;35m\x04[0m[31m[1;35m\b[0m[31mu@u*6][1;35m\e[0m[31mC*{[1;35m\xEE[0m[31m[1;35m\xBF[0m[31mx[1;31m"[0m[31m[0m,
+             [31m[1;31m"[0m[31msigned cookie64[1;31m"[0m[31m[0m=>
+              [31m[1;31m"[0m[31mw[1;35m\xE4[0m[31mM*[1;35m\xFD[0m[31mw[1;35m\x06[0m[31m[1;35m\xD3[0m[31mt[1;35m\xC9[0m[31m[1;35m\xC5[0m[31m[1;35m\xEA[0m[31m[1;35m\xE4[0m[31mM:d@[1;35m\xBD[0m[31m[1;35m\n[0m[31m-[1;35m\xC8[0m[31m[1;35m\r[0m[31m[1;35m\x0F[0m[31m w:ps~ we[1;35m\x83[0m[31m[1;35m\xF0[0m[31m[1;35m\xCF[0m[31m[1;35m\xDB[0m[31m[1;35m\xC8[0m[31mU[1;35m\xF4[0m[31mt[1;35m\xC3[0m[31m[1;35m\xE3[0m[31m[1;35m\x17[0m[31m[1;35m\\[0m[31mm[1;35m\x02[0m[31m[1;35m\xEE[0m[31m[1;35m\xF1[0m[31m[1;35m\xE6[0m[31mK>[1;35m\xAC[0m[31m[1;35m\xA8[0m[31mn[1;35m\xD7[0m[31mF[1;35m\xFF[0m[31m)'[1;35m\xB0[0m[31mV[1;35m\x9F[0m[31m[1;35m\xC2[0m[31mU[1;31m"[0m[31m[0m},
+           @default_proc[32m=[0m[1;36mnil[0m[32m>[0m,
+         @key_generator[32m=[0m
+          [32m#<ActiveSupport::KeyGenerator:0x00000008058838[0m
+           @iterations[32m=[0m[1;34m1000[0m,
+           @secret[32m=[0m
+            [31m[1;31m"[0m[31m0c8550ff6f237925213092e0058df8d2a24085e3bf4426960458e20d5cd072019fda365c1109859ed6e0bdb34adea2bccf3e134fb4f8b391458e7e95bdf585c2[1;31m"[0m[31m[0m[32m>[0m[32m>[0m,
+       @options[32m=[0m
+        {[33m:signed_cookie_salt[0m=>[31m[1;31m"[0m[31msigned cookie[1;31m"[0m[31m[0m,
+         [33m:encrypted_cookie_salt[0m=>[31m[1;31m"[0m[31mencrypted cookie[1;31m"[0m[31m[0m,
+         [33m:encrypted_signed_cookie_salt[0m=>[31m[1;31m"[0m[31msigned encrypted cookie[1;31m"[0m[31m[0m,
+         [33m:secret_token[0m=>[1;36mnil[0m,
+         [33m:secret_key_base[0m=>
+          [31m[1;31m"[0m[31m0c8550ff6f237925213092e0058df8d2a24085e3bf4426960458e20d5cd072019fda365c1109859ed6e0bdb34adea2bccf3e134fb4f8b391458e7e95bdf585c2[1;31m"[0m[31m[0m,
+         [33m:upgrade_legacy_signed_cookies[0m=>[1;36mfalse[0m,
+         [33m:serializer[0m=>[33m:json[0m,
+         [33m:digest[0m=>[1;36mnil[0m},
+       @secure[32m=[0m[1;36mfalse[0m,
+       @set_cookies[32m=[0m{[31m[1;31m"[0m[31mrequest_method[1;31m"[0m[31m[0m=>{[33m:value[0m=>[31m[1;31m"[0m[31mPUT[1;31m"[0m[31m[0m, [33m:path[0m=>[31m[1;31m"[0m[31m/[1;31m"[0m[31m[0m}}[32m>[0m,
+     [31m[1;31m"[0m[31mrack.request.cookie_hash[1;31m"[0m[31m[0m=>{},
+     [31m[1;31m"[0m[31maction_dispatch.request.content_type[1;31m"[0m[31m[0m=>[1;36mnil[0m,
+     [31m[1;31m"[0m[31maction_dispatch.request.request_parameters[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m=>{}},
+     [31m[1;31m"[0m[31maction_dispatch.request.path_parameters[1;31m"[0m[31m[0m=>
+      {[33m:id[0m=>[31m[1;31m"[0m[31madresses[1;31m"[0m[31m[0m, [33m:controller[0m=>[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m, [33m:action[0m=>[31m[1;31m"[0m[31mupdate[1;31m"[0m[31m[0m},
+     [31m[1;31m"[0m[31maction_dispatch.request.flash_hash[1;31m"[0m[31m[0m=>
+      [32m#<ActionDispatch::Flash::FlashHash:0x0000000713a950[0m
+       @discard[32m=[0m[32m#<Set: {[0m}>,
+       @flashes[32m=[0m{},
+       @now[32m=[0m[1;36mnil[0m[32m>[0m,
+     [31m[1;31m"[0m[31mPATH_INFO[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m/checkout/adresses[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31maction_dispatch.request.parameters[1;31m"[0m[31m[0m=>
+      {[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m=>{},
+       [31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31madresses[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31mcontroller[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31maction[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mupdate[1;31m"[0m[31m[0m},
+     [31m[1;31m"[0m[31maction_dispatch.request.formats[1;31m"[0m[31m[0m=>
+      [[32m#<Mime::Type:0x00000001c91c28[0m
+        @string[32m=[0m[31m[1;31m"[0m[31mtext/html[1;31m"[0m[31m[0m,
+        @symbol[32m=[0m[33m:html[0m,
+        @synonyms[32m=[0m[[31m[1;31m"[0m[31mapplication/xhtml+xml[1;31m"[0m[31m[0m][32m>[0m]},
+   @filtered_env[32m=[0m[1;36mnil[0m,
+   @filtered_parameters[32m=[0m
+    {[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m=>{},
+     [31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31madresses[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31mcontroller[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mcheckout[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31maction[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mupdate[1;31m"[0m[31m[0m},
+   @filtered_path[32m=[0m[1;36mnil[0m,
+   @formats[32m=[0m[1;36mnil[0m,
+   @fullpath[32m=[0m[31m[1;31m"[0m[31m/checkout/adresses?locale=en[1;31m"[0m[31m[0m,
+   @ip[32m=[0m[1;36mnil[0m,
+   @method[32m=[0m[1;36mnil[0m,
+   @original_fullpath[32m=[0m[1;36mnil[0m,
+   @port[32m=[0m[1;34m80[0m,
+   @protocol[32m=[0m[31m[1;31m"[0m[31mhttp://[1;31m"[0m[31m[0m,
+   @remote_ip[32m=[0m[1;36mnil[0m,
+   @request_method[32m=[0m[31m[1;31m"[0m[31mPUT[1;31m"[0m[31m[0m,
+   @set_cookies[32m=[0m{},
+   @uuid[32m=[0m[1;36mnil[0m[32m>[0m,
+ @sending[32m=[0m[1;36mfalse[0m,
+ @sending_file[32m=[0m[1;36mfalse[0m,
+ @sent[32m=[0m[1;36mfalse[0m,
+ @status[32m=[0m[1;34m302[0m,
+ @stream[32m=[0m
+  [32m#<ActionDispatch::Response::Buffer:0x000000072c1b20[0m
+   @buf[32m=[0m
+    [[31m[1;31m"[0m[31m<html><body>You are being <a href=[1;35m\"[0m[31mhttp://test.host/checkout/confirm?locale=en[1;35m\"[0m[31m>redirected</a>.</body></html>[1;31m"[0m[31m[0m],
+   @closed[32m=[0m[1;36mfalse[0m,
+   @response[32m=[0m[32m#<ActionController::TestResponse:0x000000053cc418[0m ...[32m>[0m[32m>[0m[32m>[0m

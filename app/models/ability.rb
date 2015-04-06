@@ -5,32 +5,21 @@ class Ability
     if user.is_a?(Admin)
       can :access, :rails_admin
       can :dashboard
-      can :manage, Book
-      can :manage, Author
-      can :manage, Category
-      can :read, Rating
-      can :update, Rating
-      can :manage, Order
+      can :manage, [Book, Author, Category, Order, Country, Discount]
+      can [:read, :update], Rating
+      can :read, [Orderitem, Address, CreditCard, Customer]
     elsif user.is_a?(Customer)
-      can :read, Book
-      can :read, Category
-      can :manage, Order, customer_id: customer.id
+      can :read, [Book, Category]
+      can :manage, Order, customer_id: user.id
       cannot :destroy, Order
-      can :manage, OrderItem, ["order.user_id == ?", user.id] do |order_item|
-        order_item.order.user_id==user.id
+      can :manage, Orderitem, Orderitem.where(:order_id => user.orders.ids) do |orderitem|
+        orderitem.order.customer_id == user.id
       end
-      can :manage, CrediCard, customer_id: customer.id
-      can :new, Rating
-      can :read, Rating
-      can :update, Rating, customer_id: customer.id
-      can :read, Customer, customer.id
-      can :update, Customer, customer.id
-      can :manage, Address, customer_id: customer.id
+      can [:new, :read, :create], Rating
     else
-      can :manage, CrediCard
-      can :read, Book
-      can :read, Category
-      can :read, Rating
+      can :manage, Orderitem
+      can [:show, :apply_discount], Order
+      can :read, [Book, Category, Rating]
     end
 
     # Define abilities for the passed in user here. For example:

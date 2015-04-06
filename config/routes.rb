@@ -1,25 +1,23 @@
 Rails.application.routes.draw do
-  post '/rate' => 'rater#create', :as => 'rate'
-resources :books, only: [:index, :show] do
-resources :ratings, only: [:new, :create]
-end
-resource :cart, only: [:show, :update]
-resources :orderitems, only: [:create, :update, :destroy]
-resources :categories, only: [:index, :show]
-resources :orders
-resources :categories, only: [:index, :show]
-resources :billing_addresses, only: [:new, :create, :update, :edit]
-resources :shipping_addresses, only: [:new, :create, :update, :edit]
-resources :credit_cards, only: [:new, :create, :update, :edit]
-resources :ratings, only: [:new, :create]
-resources :checkout, only: [:show, :update]
+  get 'cart', to: 'orderitems#index', as: :cart
+  put 'cart/update_orderitems', to: 'orderitems#update_orderitems', as: 'cart_update_orderitems'
+  put 'cart/apply_discount', to: 'orders#apply_discount', as: 'cart_apply_discount'
+  resources :books, only: [:index, :show] do
+    resources :ratings, only: [:new, :create]
+  end
+  resources :orderitems, only: [:create, :destroy]
+  resources :categories, only: [:index, :show]
+  resources :orders, only: [:index, :show, :edit, :update] do
+    get 'cancel', on: :member
+  end
+  resources :checkout, only: [:show, :update]
 
-  devise_for :admins
+  devise_for :admins, only: :sessions
   devise_for :customers, :controllers => { :omniauth_callbacks => "callbacks", :registrations => "customers", :sessions => "sessions" }
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :customers
 
-   root :to => 'books#index'
+    root :to => 'books#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

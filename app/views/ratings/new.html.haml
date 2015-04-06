@@ -1,5 +1,6 @@
 %h3.text-center
-  New Review for #{@book.title}
+  New Review for 
+  = link_to "#{@book.title}", book_path(@book.id)
   .row
     .col-xs-6.col-xs-offset-3
       = render "review", rating: @rating, book: @book

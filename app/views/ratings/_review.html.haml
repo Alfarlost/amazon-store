@@ -2,5 +2,7 @@
   .row
     .col-xs-6
       = form_for rating, :url => book_ratings_path do |f|
+        = f.label :rating
+        = f.select :rating, options_for_select([1, 2, 3, 4, 5])
         = f.text_area :review
         = f.submit "SEND REVIEW", class: "btn btn-primary"

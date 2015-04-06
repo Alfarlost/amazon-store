@@ -21,6 +21,11 @@ class Orderitem < ActiveRecord::Base
     calculate_unit_price * quantity
   end
 
+  def rails_admin_link
+    book.title
+  end
+
+
 private
   def finalize
     self.unit_price = calculate_unit_price

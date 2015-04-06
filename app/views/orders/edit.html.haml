@@ -1,11 +1,12 @@
+%h4 
+  Order ##{@order.id} 
+  %small #{@order.state}
 - @orderitems.each do |orderitem|
-  = render 'order_row', book: orderitem.book, orderitem: orderitem, show_total: true
-  .div  
-    %h3.text-right
-      = render 'checkout/order_information'
+  = render 'order_row', book: orderitem.book, orderitem: orderitem
+.row  
+  .text-right
+    = render 'checkout/order_information', order: @order
   .text-center    
-    - if @order.state == "in queue"
-      = link_to "Cancel Order", order_path(@order.id), :method => :delete, class: "btn btn-primary"
-      = link_to "Back to shop", root_path, class: "btn btn-primary"
-    - else
-      = link_to "Back to shop", root_path, class: "btn btn-primary"
+    - if @order.in_queue?
+      = link_to "Cancel Order", cancel_order_path(@order.id), class: "btn btn-primary"
+    = link_to "Back to Orders", orders_path, class: "btn btn-primary"

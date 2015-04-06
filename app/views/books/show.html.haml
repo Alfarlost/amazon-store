@@ -1,11 +1,12 @@
 %h3.text-center 
   Full Information
   .row
-    .col-xs-6.col-xs-offset-3
+    .col-xs-12
       = render "book_row", book: @book, orderitem: @orderitem
   .row
     %h4
       Reviews:
       = link_to "(Add new Review)", new_book_rating_path(@book.id)
     - @ratings.each do |rating|
-      = render "review", rating: rating
+      - if rating.approved?
+        = render "review", rating: rating

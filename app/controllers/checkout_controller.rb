@@ -12,9 +12,10 @@ class CheckoutController < ApplicationController
   def update
     @checkout = Checkout.new(current_order)
     if @checkout.update(checkout_params(step))
+      jump_to("confirm") if current_order.finishable?
       render_wizard(@checkout)
     else
-      flash[:alert] = "We missed some of your information. Please go back and check."
+      flash.now[:alert] = I18n.t('checkout.errors.missing_data')
       render_wizard
     end
   end
@@ -25,8 +26,9 @@ private
   end
 
   def redirect_to_finish_wizard(options = nil)
-    current_order.in_queue
-    redirect_to root_path, notice: "Your order is in queue now!"
+    current_order_id = current_order.id
+    current_order.to_queue!
+    redirect_to order_path(current_order_id), notice: I18n.t('order.state.in_queue')
   end
 
   def check_step_access

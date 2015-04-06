@@ -1,0 +1,22 @@
+- if @orderitems.size == 0
+  .text-center
+    %p 
+      There are no items in your shopping cart. Please 
+      = link_to "go back and choose", root_path
+- else
+  = form_for current_order, :url => cart_update_orderitems_path, :html => { method: :put } do |f|
+    - @orderitems.sort.each do |orderitem|
+      = render 'cart/cart_row', book: orderitem.book, orderitem: orderitem, f: f
+    .text-right
+      = f.submit "Update Orderitems Quantity", class: "btn btn-primary"
+  .div  
+    %h3.text-right
+      Subtotal:
+      = number_to_currency current_order.total_price
+    .text-center
+      = form_for current_order, :url => cart_apply_discount_path(current_order.id), html: { method: :put } do |f|
+        = f.text_field :coupone_code, placeholder: "Coupone Code", value: ""
+        = f.submit "GET DISCOUNT", class: "btn btn-primary"
+      = link_to "Check Out", checkout_path(Checkout.form_steps.first), class: "btn btn-primary"
+      = link_to "Back to shop", root_path, class: "btn btn-primary"
+ 

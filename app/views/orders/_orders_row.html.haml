@@ -1,21 +1,29 @@
-- if order.state != "in progress" || order.total_price != nil
-  .well
+.well
+  - if @order_in_progress.present? && @order_in_progress.orderitems.count > 0
     .row
-      .table{:style => "word-wrap: break-word"}
-        %tr
-          .col-xs-2
-            %td
-              Order ID
-              %h4= order.id
-          .col-xs-4
-            %td
-              .text-center
-                Order State
-                %h4= order.state
-          .col-xs-3
-            %td
-              Total Price
-              %h4
-                = number_to_currency order.total_price
-          .col-xs-1.text-center
-            = link_to "Details", edit_order_path(order.id), class: "btn btn-primary" 
+      %h3
+        = t('order.views.in_progress')
+      - @order_in_progress.orderitems.each do |orderitem|
+        = render 'order_row', book: orderitem.book, orderitem: orderitem
+      = t('order.views.subtotal')
+      = number_to_currency @order_in_progress.recalculate_total_price
+      = link_to t('order.views.back_to_cart'), cart_path, class: "btn btn-primary"
+  - if @orders_in_queue.present?
+    .row
+      = render "order_in_state_header", order: @orders_in_queue
+      - @orders_in_queue.each do |order|
+        = render "order_in_state", order: order
+  - if @orders_complited.present?
+    .row
+      = render "order_in_state_header", order: @orders_complited
+      - @orders_complited.each do |order|
+        = render "order_in_state", order: order
+  - if @orders_shipped.present?      
+    .row
+      = render "order_in_state_header", order: @orders_shipped
+      - @orders_shipped.each do |order|
+        = render "order_in_state", order: order
+
+
+        
+      

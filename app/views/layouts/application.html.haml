@@ -19,7 +19,7 @@
             - if current_order.orderitems.size == 0
               .badge empty
             - else
-              .badge #{current_order.orderitems.size} book
+              .badge #{current_order.calculate_books_quantity} book
               .badge #{number_to_currency current_order.total_price}
       = menu_group pull: :right do
         - if current_customer

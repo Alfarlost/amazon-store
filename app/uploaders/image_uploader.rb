@@ -1,5 +1,5 @@
 # encoding: utf-8
-
+require 'carrierwave/processing/mini_magick'
 class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
@@ -12,10 +12,13 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
+  def filename
+    "#{secure_token(10)}.#{file.extension}" if original_filename
+  end
+
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
-
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
@@ -24,18 +27,17 @@ class ImageUploader < CarrierWave::Uploader::Base
   #
   "/images/" + [version_name, "default.png"].compact.join('_')
   end
-  process :resize_to_fill => [200, 200]
+
   # Process files as they are uploaded:
-  process :scale => [200, 200]
   #
   # def scale(width, height)
   #   # do something
   # end
-
+  process :resize_to_fit => [200, 300]
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :resize_to_fit => [50, 50]
-  # end
+  version :mini do
+    process :resize_to_fit => [170, 170]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -48,5 +50,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
+  protected
+  def secure_token(length=16)
+    var = :"@#{mounted_as}_secure_token"
+    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.hex(length/2))
+  end
 end
