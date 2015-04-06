@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :billing_address do
-   order_id nil
+   order
     adress "Billing"
-    zipcode "325235"
+    zipcode "325"
     city "MyString"
     phone "MyString"
     country "MyString"

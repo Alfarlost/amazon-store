@@ -1,13 +1,12 @@
 class OrdersController < ApplicationController
   load_and_authorize_resource :through => :current_customer, only: :index
-  load_and_authorize_resource only: [:edit, :show]
-  load_and_authorize_resource :edit => :cancel 
+  load_and_authorize_resource only: [:edit, :show, :cancel]
   
   def index
-    @order_in_progress = @orders.with_state("in progress").first
-    @orders_in_queue = @orders.with_state("in queue")
-    @orders_complited = @orders.with_state("complited")
-    @orders_shipped = @orders.with_state("shipped")
+    @order_in_progress = @orders.in_progress.first
+    @orders_in_queue = @orders.in_queue
+    @orders_complited = @orders.completed
+    @orders_shipped = @orders.shipped
   end
 
   def show
@@ -28,10 +27,10 @@ class OrdersController < ApplicationController
   end
 
   def apply_discount
-    if current_order.coupone_code.nil?
-      if params[:order][:coupone_code] == current_order.discount.coupone_code
+    if params[:order][:coupone_code] != current_order.coupone_code
+      if Discount.where(coupone_code: params[:order][:coupone_code]).present?
         current_order.update_attributes(coupone_params)
-        current_order.calculate_discount
+        current_order.update_total_price
         flash[:notice] = I18n.t('order.coupone_code.right')
       else
         flash[:alert] = I18n.t('order.coupone_code.unavailable')

@@ -27,7 +27,7 @@ private
 
   def redirect_to_finish_wizard(options = nil)
     current_order_id = current_order.id
-    current_order.in_queue
+    current_order.to_queue!
     redirect_to order_path(current_order_id), notice: I18n.t('order.state.in_queue')
   end
 

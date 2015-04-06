@@ -14,13 +14,8 @@ class CustomersController < Devise::RegistrationsController
     else
       resource.create_billing_address(billing_address_params)
     end
-    if resource.has_valid_settings?
-      current_order.set_customer(resource)
-      super
-    else
-      flash.now[:alert] = I18n.t('devise.customers.customer.bad_account_information')
-      render :edit
-    end
+    current_order.set_customer(resource)
+    super
   end
 
 private

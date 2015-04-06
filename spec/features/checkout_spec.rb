@@ -1,17 +1,17 @@
 require 'features/features_spec_helper'
 
 feature "Checkout" do
-	given!(:order)  { FactoryGirl.create(:order_with_orderitem) }
+  given!(:order) { FactoryGirl.create(:order_with_orderitem) }
 
-	  background do
+    background do
       page.set_rack_session(:order_id => order.id) 
     end
 
   context "adresses step" do
-  	context "visitor without sign in" do
-  		before do
-  		  page.visit checkout_path(Checkout.form_steps.first)
-  			  fill_in 'checkout_b_first_name', with: "John"
+    context "visitor without sign in" do
+      before do
+        page.visit checkout_path(Checkout.form_steps.first)
+          fill_in 'checkout_b_first_name', with: "John"
           fill_in 'checkout_b_last_name', with: "Doe"
           fill_in 'checkout_b_adress', with: "5 north-east"
           fill_in 'checkout_b_city', with: "heaven"
@@ -20,13 +20,13 @@ feature "Checkout" do
           fill_in 'checkout_b_city', with: "Paris"
       end
 
-  	  context "passed" do
-  		  after do
+      context "passed" do
+        after do
           expect(page).to have_field("checkout_delivery_5", with: 5)
           expect(page).to have_field("checkout_delivery_10", with: 10)
           expect(page).to have_field("checkout_delivery_15", with: 15)
           expect(page).to have_content "Order Total: $#{order.total_price}0"
-        end   		  	
+        end           
   
         scenario "Visitor passed adresses step sucessfuly with checked checkbox" do
             fill_in 'checkout_b_phone', with: "+380675434567"
@@ -35,8 +35,8 @@ feature "Checkout" do
         end
 
         scenario "Visitor passed adresses step sucessfuly with unchecked checkbox" do
-        	fill_in 'checkout_b_phone', with: "+380675434567"
-        	fill_in 'checkout_s_first_name', with: "John"
+          fill_in 'checkout_b_phone', with: "+380675434567"
+          fill_in 'checkout_s_first_name', with: "John"
           fill_in 'checkout_s_last_name', with: "Doe"
           fill_in 'checkout_s_adress', with: "5 north-east"
           fill_in 'checkout_s_city', with: "heaven"
@@ -48,7 +48,7 @@ feature "Checkout" do
         end
       end 
       context "failed" do
-      	after do
+        after do
           expect(page).not_to have_field("checkout_delivery_5", with: 5)
           expect(page).to have_field('checkout_s_first_name', with: "")
           expect(page).to have_content "Order Total: $#{order.total_price}0"
@@ -56,57 +56,59 @@ feature "Checkout" do
         end
 
         scenario "Visitor failed to pass adresses step with unchecked checkbox" do
-        	page.visit checkout_path(Checkout.form_steps.first)
+          page.visit checkout_path(Checkout.form_steps.first)
             fill_in 'checkout_b_phone', with: "+380675434567"
             click_button 'SAVE AND CONTINUE'
         end
         scenario "Visitor failed to pass adresses step when forgot to enter some information" do
-        	page.visit checkout_path(Checkout.form_steps.first)
-        	  check 'checkout_same_shipping_address'
+          page.visit checkout_path(Checkout.form_steps.first)
+            check 'checkout_same_shipping_address'
             click_button 'SAVE AND CONTINUE'
         end     
       end
     end
     context 'loged in customer' do
-    	given!(:customer) { FactoryGirl.create(:customer) }
+      given!(:customer) { FactoryGirl.create(:customer) }
+      given!(:order1) { FactoryGirl.create(:order_with_orderitem, customer: customer) }
 
-    	background do
-      	page.visit new_customer_session_path
+      background do
+        page.visit new_customer_session_path
           fill_in 'Email', with: customer.email
           fill_in 'Password', with: customer.password
           click_button('Log in')
+        page.set_rack_session(:order_id => order1.id)
         page.visit checkout_path(Checkout.form_steps.first)
       end
-    	
+      
       scenario "Visitor with full account information passed adresses step sucessfuly without entering data" do  
-      	  click_button 'SAVE AND CONTINUE'
+          click_button 'SAVE AND CONTINUE'
   
         expect(page).to have_field("checkout_delivery_5", with: 5)
         expect(page).to have_field("checkout_delivery_10", with: 10)
         expect(page).to have_field("checkout_delivery_15", with: 15)
-        expect(page).to have_content "Order Total: $#{order.total_price}0"    	
+        expect(page).to have_content "Order Total: $#{order1.total_price}0"      
       end
 
       scenario "Visitor with full account information failled to pass adresses step when deleted some information" do
-      	  fill_in 'checkout_b_phone', with: ""
+          fill_in 'checkout_b_phone', with: ""
           click_button 'SAVE AND CONTINUE'
 
         expect(page).not_to have_field("checkout_delivery_5", with: 5)
         expect(page).to have_field('checkout_b_phone', with: "")
         expect(page).to have_content I18n.t('checkout.errors.missing_data')
-        expect(page).to have_content "Order Total: $#{order.total_price}0"
+        expect(page).to have_content "Order Total: $#{order1.total_price}0"
       end
     end
   end
   
   context "with passed adresses step" do
-  	given!(:billing_address) { FactoryGirl.create(:billing_address, order_id: order.id) }
-  	given!(:shipping_address) { FactoryGirl.create(:shipping_address, order_id: order.id) }
+    given!(:billing_address) { FactoryGirl.create(:billing_address, order_id: order.id) }
+    given!(:shipping_address) { FactoryGirl.create(:shipping_address, order_id: order.id) }
 
-  	scenario "Visitor pass delivery step sucessfuly" do
-  		page.visit checkout_path(Checkout.form_steps[1])
-  		  choose 'checkout_delivery_10'
-  		  click_button 'SAVE AND CONTINUE'
+    scenario "Visitor pass delivery step sucessfuly" do
+      page.visit checkout_path(Checkout.form_steps[1])
+        choose 'checkout_delivery_10'
+        click_button 'SAVE AND CONTINUE'
 
       expect(page).not_to have_field("checkout_delivery_5", with: 5)
       expect(page).to have_field("checkout_number")

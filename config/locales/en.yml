@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  unauthorized:
+    error: 'Please login to get access'
   datetime:
     distance_in_words:
       half_a_minute: 'half a minute'

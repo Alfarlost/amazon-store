@@ -14,11 +14,13 @@ feature "Shop" do
       expect(page).to have_button "Add to Cart"
       expect(page).to have_content "Reviews: (Add new Review)"
   end
+  
   scenario "Visitor chose second book and want see details" do
     visit categories_path
-      click_link 'Category1'
+      click_link category1.title
 
-    expect(page).to have_content 
+    expect(page).to have_content category1.books.first.title
+    expect(page).to have_content category1.books[1].title
+    expect(page).not_to have_content category.books.first.title
   end 
-
 end

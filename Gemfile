@@ -76,6 +76,7 @@ gem 'pry-byebug'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'faker'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -93,8 +94,9 @@ group :development, :test do
 end
 
 group :test do
+  gem 'simplecov', :require => false
   gem 'capybara'
-  gem 'faker'
   gem 'shoulda-matchers', require: false
+  gem 'shoulda-callback-matchers', '~> 1.1.1'
   gem 'database_cleaner'
 end

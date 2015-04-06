@@ -8,10 +8,14 @@ class ApplicationController < ActionController::Base
   helper_method :current_order
   alias_method :current_user, :current_customer
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to main_app.new_customer_session_path, :alert => I18n.t('unauthorized.error')
+  end
+
   def current_order
     if session[:order_id].present?
       order = Order.find(session[:order_id])
-      if order.state != "in progress" 
+      if order.state != "in_progress"
         order = Order.build_for_customer(current_customer)
         session[:order_id] = order.id
       end

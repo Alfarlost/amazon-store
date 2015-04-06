@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
- load_and_authorize_resource only: :show
+  load_and_authorize_resource only: :show
+
   def index
     authorize! :index, Book
     @books = Book.bestsellers(3).accessible_by(current_ability)

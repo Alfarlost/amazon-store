@@ -1,7 +1,6 @@
 class OrderitemsController < ApplicationController
   load_and_authorize_resource :only => :destroy
   load_and_authorize_resource :through => :current_order, :only => [:create, :index]
-  load_and_authorize_resource :index => :update_orderitems, :through => :current_order
   
   def index
     render 'cart/show'
@@ -25,12 +24,14 @@ class OrderitemsController < ApplicationController
   end
 
   def update_orderitems
+    authorize! :update_orderitems, Orderitem
+    @orderitems = current_order.orderitems.accessible_by(current_ability, :update_orderitems)
     if @orderitems.update(orderitems_params[:orderitems].keys, orderitems_params[:orderitems].values)
-      flash.now[:notice] = I18n.t('orderitems.book.updated')
+      redirect_to cart_path, notice: I18n.t('orderitems.book.updated')
     else
       flash.now[:alert] = @orderitems.errors.first
+      render 'cart/show'
     end
-    render 'cart/show'
   end
 
 private
@@ -43,6 +44,6 @@ private
   end
 
   def orderitems_params
-    params.require(:order).permit(:orderitems => [:id, :quantity, :book_id])
+    params.require(:order).permit(:orderitems => [:quantity, :book_id])
   end
 end

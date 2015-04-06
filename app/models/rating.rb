@@ -15,10 +15,10 @@ class Rating < ActiveRecord::Base
   end
 
   def rater_name  
-    if self.customer.billing_address.first_name.present?
+    if self.customer.billing_address.first_name.present? && self.customer.billing_address.last_name.present?
+      "#{self.customer.billing_address.first_name} #{self.customer.billing_address.last_name}"
+    elsif self.customer.billing_address.first_name.present?
       "#{self.customer.billing_address.first_name}"
-    elsif self.customer.billing_address.last_name.present?
-      "#{self.customer.billing_address.last_name}"
     else
       "Anonymous"
     end

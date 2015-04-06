@@ -12,7 +12,6 @@ class Customer < ActiveRecord::Base
   has_one :credit_card
   accepts_nested_attributes_for :shipping_address
   accepts_nested_attributes_for :billing_address
-  accepts_nested_attributes_for :credit_card
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -21,9 +20,5 @@ class Customer < ActiveRecord::Base
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
     end
-  end
-
-  def has_valid_settings? 
-    return true if self.billing_address.valid? && self.shipping_address.valid?
   end
 end

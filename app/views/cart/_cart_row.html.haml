@@ -22,17 +22,15 @@
           %td
             .text-center
               QTY
-            = oi.number_field :quantity, value: orderitem.quantity.to_i, class: "form-control", min: 1
+            #quantity
+              = oi.number_field :quantity, value: orderitem.quantity.to_i, class: "form-control", min: 1
             = oi.hidden_field :book_id, {value: book.id}
         .col-xs-1
           %td
             TOTAL
             %h4
               = number_to_currency orderitem.price
-        .row
-          .col-xs-12.text-right
-            .btn-group
-              = f.submit "Update Quantity", class: "btn btn-primary"
+            .text-right  
               = link_to "Delete", orderitem, { data: { confirm: "Are you shure you wish to delete the book '#{orderitem.book.title }' from your cart?" }, method: :delete, :url => orderitem_path(orderitem.id), class: "btn btn-danger" }
         
         
